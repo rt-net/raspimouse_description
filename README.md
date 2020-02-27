@@ -16,7 +16,7 @@ ROS package with URDF description macro for [Raspberry Pi Mouse](https://www.rt-
 # Clone raspimouse_description and install dependencies
 cd ~/catkin_ws/src
 git clone https://github.com/rt-net/raspimouse_description
-rosdep install -r -y --from-paths .
+rosdep install -r -y -i --from-paths .
 
 # Build the package
 cd ~/catkin_ws
