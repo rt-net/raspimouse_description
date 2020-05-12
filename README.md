@@ -34,6 +34,7 @@ roslaunch raspimouse_description display_xacro.launch
 
 ## LICENSE
 
-This repository is licensed under the MIT license, see [LICENSE](./LICENSE).
+(C) 2016-2020 RT Corporation \<shop@rt-net.jp\>
 
+This repository is licensed under the MIT license, see [LICENSE](./LICENSE).  
 Unless attributed otherwise, everything in this repository is under the MIT license.
