@@ -1,6 +1,6 @@
 # raspimouse_description
 
-ROS package with URDF description macro for [Raspberry Pi Mouse](https://www.rt-net.jp/products/raspimouse2?lang=en)
+ROS package with URDF description macro for [Raspberry Pi Mouse](https://rt-net.jp/products/raspberrypimousev3/)
 
 ![display_launch](https://github.com/rt-net/raspimouse_description/blob/image/display_launch.png)
 
