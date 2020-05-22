@@ -4,7 +4,7 @@
 
   <xacro:macro name="lrf_sensor" params="prefix parent *joint_origin">
     <joint name="${prefix}_joint" type="fixed">
-      <insert_block name="joint_origin"/>
+      <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
       <child link="${prefix}"/>
     </joint>
