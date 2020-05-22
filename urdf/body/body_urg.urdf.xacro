@@ -16,10 +16,8 @@
         </geometry>
       </visual>
       <collision>
-        <!-- <origin rpy="0 0 ${radians(-90)}" /> -->
         <origin rpy="0 0 0" xyz="0.005 0 0.0435" />
         <geometry>
-          <!-- <mesh filename="package://raspimouse_description/meshes/stl/collision/collision_body.stl" scale="0.001 0.001 0.00116" /> -->
           <box size="0.117 0.080 0.087"/>
         </geometry>
       </collision>
