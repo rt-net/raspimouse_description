@@ -5,7 +5,7 @@
   <description>The raspimouse_description package</description>
 
   <maintainer email="shop@rt-net.jp">RT Corporation</maintainer>
-  <author email="tiryoh@gmail.com">Daisuke Sato</author>
+  <author email="daisuke.sato@rt-net.jp">Daisuke Sato</author>
 
   <license>MIT</license>
 
@@ -15,9 +15,10 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>urdf</depend>
   <depend>joint_state_publisher_gui</depend>
   <depend>robot_state_publisher</depend>
+  <depend>rviz</depend>
+  <depend>urdf</depend>
 
   <export>
 

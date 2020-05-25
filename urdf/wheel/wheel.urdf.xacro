@@ -7,8 +7,8 @@
   <xacro:property name="wheel_mass" value="0.0113"/>
   <xacro:macro name="wheel" params="prefix parent *joint_origin *joint_axis">
   <joint name="${prefix}_wheel_joint" type="continuous">
-    <insert_block name="joint_origin"/>
-    <insert_block name="joint_axis"/>
+    <xacro:insert_block name="joint_origin"/>
+    <xacro:insert_block name="joint_axis"/>
     <parent link="${parent}"/>
     <child link="${prefix}_wheel"/>
     <limit effort="70" velocity="15"/>

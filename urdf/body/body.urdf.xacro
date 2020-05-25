@@ -5,7 +5,7 @@
   <xacro:property name="velocity_scale_factor" value="1.0"/>
   <xacro:macro name="base" params="parent *joint_origin">
     <joint name="base_joint" type="fixed">
-      <insert_block name="joint_origin"/>
+      <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
       <child link="base_link"/>
     </joint>
