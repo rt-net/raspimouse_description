@@ -4,6 +4,8 @@ ROS package with URDF description macro for [Raspberry Pi Mouse](https://rt-net.
 
 ![display_launch](https://github.com/rt-net/raspimouse_description/blob/image/display_launch.png)
 
+This ROS package was separated from [rt-net/raspimouse_sim](https://github.com/rt-net/raspimouse_sim), [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse_sim/pull/42).
+
 ## Requirements
 
 - ROS
