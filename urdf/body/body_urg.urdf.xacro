@@ -16,6 +16,9 @@
         </geometry>
       </visual>
       <collision>
+        <!-- <geometry> -->
+          <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body-TopPlate.dae"/> -->
+        <!-- </geometry> -->
         <origin rpy="0 0 0" xyz="0.005 0 0.0435" />
         <geometry>
           <box size="0.117 0.080 0.087"/>

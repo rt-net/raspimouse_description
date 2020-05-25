@@ -16,6 +16,9 @@
         </geometry>
       </visual>
       <collision>
+        <!-- <geometry> -->
+          <!-- <mesh filename="package://raspimouse_description/meshes/dae/sensor/URG_center.dae"/> -->
+        <!-- </geometry> -->
         <origin xyz="0 0 -0.01815" />
         <geometry>
           <cylinder radius="0.025" length="0.070"/>
