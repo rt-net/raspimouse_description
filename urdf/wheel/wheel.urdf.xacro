@@ -2,14 +2,14 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.transmission.xacro"/>
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.gazebo.xacro"/>
-  <!-- <property name="wheel_radius" value="0.0239"/> -->
-  <property name="wheel_radius" value="0.0249"/>
-  <property name="wheel_length" value="0.01"/>
-  <property name="wheel_mass" value="0.0113"/>
+  <!-- <xacro:property name="wheel_radius" value="0.0239"/> -->
+  <xacro:property name="wheel_radius" value="0.0249"/>
+  <xacro:property name="wheel_length" value="0.01"/>
+  <xacro:property name="wheel_mass" value="0.0113"/>
   <xacro:macro name="wheel" params="prefix parent *joint_origin *joint_axis">
   <joint name="${prefix}_wheel_joint" type="continuous">
-    <insert_block name="joint_origin"/>
-    <insert_block name="joint_axis"/>
+    <xacro:insert_block name="joint_origin"/>
+    <xacro:insert_block name="joint_axis"/>
     <parent link="${parent}"/>
     <child link="${prefix}_wheel"/>
     <limit effort="70" velocity="15"/>
@@ -23,7 +23,7 @@
       </geometry>
     </visual>
     <collision>
-      <!-- <insert_block name="joint_origin"/> -->
+      <!-- <xacro:insert_block name="joint_origin"/> -->
         <geometry>
           <!-- <cylinder radius="${wheel_radius}" length="${wheel_length}"/> -->
           <mesh filename="package://raspimouse_description/meshes/dae/wheel/RasPiMouse_wheel.dae"/>
