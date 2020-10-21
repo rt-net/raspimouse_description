@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.transmission.xacro"/>
-  <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.gazebo.xacro"/>
-  <xacro:property name="wheel_radius" value="0.024"/>
-  <xacro:property name="wheel_length" value="0.010"/>
-  <xacro:property name="wheel_mass" value="0.0113"/>
+
+  <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
+  
   <xacro:macro name="wheel" params="prefix parent *joint_origin *joint_axis">
   <joint name="${prefix}_wheel_joint" type="continuous">
     <xacro:insert_block name="joint_origin"/>
