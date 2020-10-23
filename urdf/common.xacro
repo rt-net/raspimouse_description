@@ -22,9 +22,9 @@
              izz="${m*r*r/2}" />
   </xacro:macro>
   <xacro:macro name="sphere_inertia" params="m r">
-    <inertia ixx="${m*r*r/5}" ixy="0" ixz="0"
-             iyy="${m*r*r/5}" iyz="0"
-             izz="${m*r*r/5}" /> 
+    <inertia ixx="${m*r*r*2/5}" ixy="0" ixz="0"
+             iyy="${m*r*r*2/5}" iyz="0"
+             izz="${m*r*r*"/5}" /> 
   </xacro:macro>
 
 </robot>
