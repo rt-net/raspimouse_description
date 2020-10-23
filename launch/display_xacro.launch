@@ -4,7 +4,7 @@
   <arg name="model" default="$(find raspimouse_description)/urdf/raspimouse.urdf.xacro" />
   <arg name="rvizconfig" default="$(find raspimouse_description)/launch/config/urdf.rviz" />
   <arg name="gui" default="True" />
-  <!-- prameters -->
+  <!-- parameters -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
   <param name="use_gui" value="$(arg gui)" />
   <rosparam param="source_list">["joint_states_source"]</rosparam>
