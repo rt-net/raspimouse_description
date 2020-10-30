@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lrf.gazebo.xacro"/>
 
-  <xacro:macro name="lrf_sensor" params="prefix parent *joint_origin">
+  <xacro:macro name="lrf_sensor" params="prefix parent laser_frame *joint_origin">
     <joint name="${prefix}_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
@@ -32,5 +32,13 @@
           iyy="0.0001" iyz="0.0" izz="0.0001" />
       </inertial>
     </link>
+
+    <!-- tf virtual joint/link -->
+    <joint name="lidar_frame_joint" type="fixed">
+      <parent link="${prefix}" />
+      <child link="${laser_frame}" />
+    </joint>
+    <link name="${laser_frame}" />
+
   </xacro:macro>
 </robot>
