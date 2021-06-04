@@ -16,19 +16,23 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
-
-import xacro
+from launch.substitutions import Command
+from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
+    declare_arg_lidar = DeclareLaunchArgument(
+        'lidar',
+        default_value='none',
+        description='Set "none" or "urg".')
+
     xacro_file = os.path.join(
         get_package_share_directory('raspimouse_description'),
         'urdf',
         'raspimouse.urdf.xacro')
-    doc = xacro.process_file(xacro_file)
-    robot_desc = doc.toprettyxml(indent='  ')
-    params = {'robot_description': robot_desc}
+    params = {'robot_description': Command(['xacro ', xacro_file, ' lidar:=', LaunchConfiguration('lidar')])}
 
     rsp = Node(package='robot_state_publisher',
                executable='robot_state_publisher',
@@ -48,4 +52,9 @@ def generate_launch_description():
                      output='log',
                      arguments=['-d', rviz_config_file])
 
-    return LaunchDescription([rsp, jsp, rviz_node])
+    return LaunchDescription([
+        declare_arg_lidar,
+        rsp,
+        jsp,
+        rviz_node,
+        ])
