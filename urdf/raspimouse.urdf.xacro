@@ -57,7 +57,7 @@
   </xacro:light_sensor>
 
   <xacro:if value="${'$(arg lidar)' == 'urg'}">
-    <xacro:lrf_sensor prefix="urg_lrf_link" parent="base_link" laser_frame="$(arg lidar_frame)">
+    <xacro:lrf_sensor prefix="urg_lrf_link" parent="base_link" lidar_frame="$(arg lidar_frame)">
       <origin xyz="0.0 0.0 0.14060" rpy="0 0 0" />
     </xacro:lrf_sensor>
   </xacro:if>
