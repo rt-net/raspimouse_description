@@ -17,7 +17,7 @@ See details from [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse
 ```sh
 # Clone raspimouse_description and install dependencies
 cd ~/ros2_ws/src
-git clone $ROS_DISTRO-devel https://github.com/rt-net/raspimouse_description
+git clone -b $ROS_DISTRO-devel https://github.com/rt-net/raspimouse_description
 rosdep install -r -y -i --from-paths .
 
 # Build the package
