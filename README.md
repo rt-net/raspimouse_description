@@ -9,9 +9,8 @@ See details from [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse
 
 ## Requirements
 
-- ROS
-  - [Kinetic Kame](http://wiki.ros.org/kinetic/Installation/Ubuntu)
-  - [Melodic Morenia](http://wiki.ros.org/melodic/Installation/Ubuntu)
+- ROS 2
+  - [Foxy Fitzroy](https://docs.ros.org/en/foxy/index.html)
 
 ## Installation
 
@@ -29,7 +28,7 @@ source install/setup.bash
 
 ## How to Use
 
-Display a Raspberry Pi Mouse robot model on RViz with the following comand:
+Display a Raspberry Pi Mouse robot model on RViz2 with the following comand:
 
 ```sh
 ros2 launch raspimouse_description display.launch.py
