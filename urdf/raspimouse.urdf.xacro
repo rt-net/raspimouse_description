@@ -46,19 +46,25 @@
   </xacro:wheel>
 
   <!-- Sensors -->
-  <xacro:light_sensor prefix="rf" parent="base_link">
+  <link name="lightsensors" />
+  <joint name="lightsensors_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lightsensors" />
+  </joint>
+
+  <xacro:light_sensor prefix="rf" parent="lightsensors">
     <origin xyz="0.04 -0.045 0.032" rpy="0 0 0" />
   </xacro:light_sensor>
 
-  <xacro:light_sensor prefix="rs" parent="base_link">
+  <xacro:light_sensor prefix="rs" parent="lightsensors">
     <origin xyz="0.059 -0.01 0.032" rpy="0 0 -1.04" />
   </xacro:light_sensor>
 
-  <xacro:light_sensor prefix="ls" parent="base_link">
+  <xacro:light_sensor prefix="ls" parent="lightsensors">
     <origin xyz="0.059 0.01 0.032" rpy="0 0 1.04" />
   </xacro:light_sensor>
 
-  <xacro:light_sensor prefix="lf" parent="base_link">
+  <xacro:light_sensor prefix="lf" parent="lightsensors">
     <origin xyz="0.04 0.045 0.032" rpy="0 0 0" />
   </xacro:light_sensor>
 
