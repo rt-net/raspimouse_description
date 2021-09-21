@@ -4,9 +4,8 @@
   <xacro:macro name="lrf_gazebo" params="prefix base_rad rad_range min_range max_range">
     <gazebo reference="${prefix}_lrf_link">
       <sensor type="ray" name="${prefix}_lrf_sensor">
-        <!-- <pose>0.0 0.0 0.05315 0 0 0</pose> -->
-        <pose>0 0 1 0 0 0</pose>
-        <visualize>false</visualize>
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>$(arg laser_visual)</visualize>
         <update_rate>10</update_rate>
         <ray>
           <scan>

@@ -8,39 +8,43 @@
       <child link="base_link" />
     </joint>
     <link name="base_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_body.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <!-- <geometry> -->
+          <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_body.dae" /> -->
+        <!-- </geometry> -->
+        <origin rpy="0 0 0" xyz="0.005 0 0.040" />
+        <geometry>
+          <box size="0.117 0.080 0.080" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-0.005075 -0.000427 0.029879" />
+        <mass value="0.7186" />
+        <inertia ixx="0.001238161833" ixy="0.000000904986" iyy="0.001368529369"
+                  ixz="0.000100297310" iyz="0.000022118177" izz="0.000784319117" />
+      </inertial>
+    </link>
 
-      <xacro:if value="${lidar == 'none'}">
+    <xacro:if value="${lidar == 'urg'}">
+      <joint name="urg_mount_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="urg_mount_link" />
+      </joint>
+      <link name="urg_mount_link">
         <visual>
           <geometry>
-            <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body.dae" />
+            <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_top_plate.dae"/>
           </geometry>
         </visual>
         <collision>
           <!-- <geometry> -->
-            <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body.dae" /> -->
-          <!-- </geometry> -->
-          <origin rpy="0 0 0" xyz="0.005 0 0.040" />
-          <geometry>
-            <box size="0.117 0.080 0.080" />
-          </geometry>
-        </collision>
-        <inertial>
-          <origin xyz="-0.005075 -0.000427 0.029879" />
-          <mass value="0.7186" />
-          <inertia ixx="0.001238161833" ixy="0.000000904986" iyy="0.001368529369"
-                   ixz="0.000100297310" iyz="0.000022118177" izz="0.000784319117" />
-        </inertial>
-      </xacro:if>
-
-      <xacro:if value="${lidar == 'urg'}">
-        <visual>
-          <geometry>
-            <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body-TopPlate.dae"/>
-          </geometry>
-        </visual>
-        <collision>
-          <!-- <geometry> -->
-            <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body-TopPlate.dae" /> -->
+            <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_top_plate.dae" /> -->
           <!-- </geometry> -->
           <origin rpy="0 0 0" xyz="0.005 0 0.0435" />
           <geometry>
@@ -53,7 +57,8 @@
           <inertia ixx="0.001561279589" ixy="0.00000150035" iyy="0.001698462955"
                    ixz="0.000042679786" iyz="0.000023629024" izz="0.000855782529"/>
         </inertial>
-      </xacro:if>
-    </link>
+      </link>
+    </xacro:if>
+
   </xacro:macro>
 </robot>
