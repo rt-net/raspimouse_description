@@ -2,7 +2,8 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="lightsensor_gazebo" params="prefix base_rad rad_range min_range max_range robotdescription_namespace robot_namespace">
-    <gazebo reference="${prefix}">
+    <gazebo reference="${prefix}_lightsensor_link">
+      <material>Gazebo/Gray</material>
       <sensor type="ray" name="${prefix}_lightsensor">
         <pose>0 0 0 0 0 0</pose>
         <visualize>false</visualize>
