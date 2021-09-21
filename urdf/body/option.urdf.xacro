@@ -30,4 +30,32 @@
     </link>
   </xacro:macro>
 
+  <xacro:macro name="camera_mount" params="prefix parent *joint_origin">
+    <joint name="${prefix}_joint" type="fixed">
+      <xacro:insert_block name="joint_origin" />
+      <parent link="${parent}" />
+      <child link="${prefix}_link" />
+    </joint>
+    <link name="${prefix}_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_camera_mount.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <!-- <geometry> -->
+        <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_camera_mount.dae" /> -->
+        <!-- </geometry> -->
+        <origin rpy="0 0 0" xyz="-0.006 0 0" />
+        <geometry>
+          <box size="0.03 0.068 0.0016" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.005" />
+        <xacro:box_inertia m="0.005" x="0.05" y="0.07" z="0.002" />
+      </inertial>
+    </link>
+  </xacro:macro>
+
 </robot>
