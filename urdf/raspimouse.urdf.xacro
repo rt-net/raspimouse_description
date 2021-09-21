@@ -17,6 +17,7 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/body/body.urdf.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/body/option.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lightsens.urdf.xacro" />
@@ -26,7 +27,7 @@
   <!-- Base -->
   <link name="base_footprint" />
 
-  <xacro:base parent="base_footprint" lidar="$(arg lidar)">
+  <xacro:base parent="base_footprint">
     <origin xyz="0 0 0.00185" />
   </xacro:base>
 
@@ -58,7 +59,10 @@
   </xacro:light_sensor>
 
   <xacro:if value="${'$(arg lidar)' == 'urg'}">
-    <xacro:lidar_urg_sensor sensor_link_name="$(arg lidar_frame)" parent="base_link">
+    <xacro:lidar_urg_mount prefix="urg_mount" parent="base_link">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:lidar_urg_mount>
+    <xacro:lidar_urg_sensor sensor_link_name="$(arg lidar_frame)" parent="urg_mount_link">
       <origin xyz="0.0 0.0 0.14060" rpy="0 0 0" />
     </xacro:lidar_urg_sensor>
   </xacro:if>
