@@ -11,7 +11,7 @@
   <link name="base_link">
      <visual>
       <geometry>
-        <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body.dae"/>
+        <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_body.dae"/>
       </geometry>
     </visual>
   </link>
@@ -20,13 +20,13 @@
     <origin xyz="0 0.0425 0.02215" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/> 
     <parent link="base_link"/>
-    <child link="left_wheel"/>
+    <child link="left_wheel_link"/>
   </joint>
   
-  <link name="left_wheel">
+  <link name="left_wheel_link">
      <visual>
       <geometry>
-        <mesh filename="package://raspimouse_description/meshes/dae/wheel/RasPiMouse_wheel.dae"/>
+        <mesh filename="package://raspimouse_description/meshes/dae/wheel/raspimouse_wheel.dae"/>
       </geometry>
     </visual>
   </link>
@@ -35,13 +35,13 @@
     <origin xyz="0 -0.0425 0.02215" rpy="1.57 0 0"/>
     <axis xyz="0 0 1"/> 
     <parent link="base_link"/>
-    <child link="right_wheel"/>
+    <child link="right_wheel_link"/>
   </joint>
   
-  <link name="right_wheel">
+  <link name="right_wheel_link">
      <visual>
       <geometry>
-        <mesh filename="package://raspimouse_description/meshes/dae/wheel/RasPiMouse_wheel.dae"/>
+        <mesh filename="package://raspimouse_description/meshes/dae/wheel/raspimouse_wheel.dae"/>
       </geometry>
     </visual>
   </link>
