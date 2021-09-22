@@ -7,7 +7,7 @@
 
   <xacro:arg name="lidar" default="none" />
   <xacro:arg name="lidar_frame" default="laser" />
-  <xacro:arg name="laser_visual" default="true"/>
+  <xacro:arg name="laser_visual" default="false"/>
   <xacro:arg name="camera" default="false" />
   <xacro:arg name="camera_visual" default="false"/>
   <xacro:arg name="gazebo_plugin" default="false" />
