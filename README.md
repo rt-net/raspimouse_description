@@ -12,7 +12,7 @@ The main development branch for ROS 2 is [`ros2`](https://github.com/rt-net/rasp
 
 ## Supported ROS distributions
 
-- ~~Kinetic ([`kinetic-devel`](https://github.com/rt-net/raspimouse_description/tree/kinetic-devel))~~ depricated
+- ~~Kinetic ([`kinetic-devel`](https://github.com/rt-net/raspimouse_description/tree/kinetic-devel))~~ deprecated
 - Melodic ([`melodic-devel`](https://github.com/rt-net/raspimouse_description/tree/melodic-devel))
 - Foxy ([`foxy-devel`](https://github.com/rt-net/raspimouse_description/tree/foxy-devel))
 
