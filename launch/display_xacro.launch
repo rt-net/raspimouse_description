@@ -4,9 +4,15 @@
   <arg name="model" default="$(find raspimouse_description)/urdf/raspimouse.urdf.xacro" />
   <arg name="rvizconfig" default="$(find raspimouse_description)/launch/config/urdf.rviz" />
   <arg name="gui" default="True" />
-  <arg name="lidar" default="none" />
+  <arg name="urg" default="false" />
+  <arg name="lidar_frame" default="laser" />
+  <arg name="xacro_option" default="" />
+
+  <arg name="urg_option" value="lidar:='urg'" if="$(arg urg)" />
+  <arg name="urg_option" value="lidar:='none'" unless="$(arg urg)" />
+
   <!-- parameters -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) lidar:=$(arg lidar)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) $(arg urg_option) lidar_frame:='$(arg lidar_frame)' $(arg xacro_option)" />
   <param name="use_gui" value="$(arg gui)" />
   <rosparam param="source_list">["joint_states_source"]</rosparam>
   <!-- nodes -->
