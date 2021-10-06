@@ -5,7 +5,7 @@
     <gazebo reference="${sensor_link_name}">
       <sensor type="ray" name="${sensor_link_name}_sensor">
         <pose>0 0 0 0 0 0</pose>
-        <visualize>false</visualize>
+        <visualize>$(arg laser_visual)</visualize>
         <update_rate>10</update_rate>
         <ray>
           <scan>

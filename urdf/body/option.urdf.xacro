@@ -10,12 +10,12 @@
     <link name="${prefix}_link">
       <visual>
         <geometry>
-          <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_TopPlate.dae"/>
+          <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_top_plate.dae"/>
         </geometry>
       </visual>
       <collision>
         <!-- <geometry> -->
-          <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_TopPlate.dae"/> -->
+          <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_top_plate.dae"/> -->
         <!-- </geometry> -->
         <origin rpy="0 0 0" xyz="0.005 0 0.0435" />
         <geometry>

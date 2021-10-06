@@ -45,4 +45,33 @@
       </geometry>
     </visual>
   </link>
+  
+  <joint name="urg_mount_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="urg_mount_link"/>
+  </joint>
+  
+  <link name="urg_mount_link">
+     <visual>
+      <geometry>
+        <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_top_plate.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <joint name="urg_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.14060" rpy="0 0 0" />
+    <parent link="urg_mount_link"/>
+    <child link="lidar_link"/>
+  </joint>
+  
+  <link name="lidar_link">
+     <visual>
+      <geometry>
+        <mesh filename="package://raspimouse_description/meshes/dae/sensor/urg_optical_axis_center_origin.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
 </robot>
