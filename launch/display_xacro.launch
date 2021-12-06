@@ -11,14 +11,19 @@
   <arg name="urg_option" value="lidar:='urg'" if="$(arg urg)" />
   <arg name="urg_option" value="lidar:='none'" unless="$(arg urg)" />
 
+  <!-- raspimouse urdf description -->
+  <include file="$(find raspimouse_description)/launch/load_xacro.launch">
+      <arg name="urg" value="$(arg urg)" />
+      <arg name="lidar_frame" value="$(arg lidar_frame)" />
+      <arg name="xacro_option" value="$(arg xacro_option)" />
+  </include>
+
   <!-- parameters -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) $(arg urg_option) lidar_frame:='$(arg lidar_frame)' $(arg xacro_option)" />
   <param name="use_gui" value="$(arg gui)" />
   <rosparam param="source_list">["joint_states_source"]</rosparam>
   <!-- nodes -->
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg gui)" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg gui)" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <!-- rviz -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 </launch>
