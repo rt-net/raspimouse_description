@@ -3,7 +3,8 @@
   <!-- arguments -->
   <arg name="model" default="$(find raspimouse_description)/urdf/raspimouse.urdf.xacro" />
   <arg name="rvizconfig" default="$(find raspimouse_description)/launch/config/urdf.rviz" />
-  <arg name="gui" default="True" />
+  <arg name="use_rviz" default="true" />
+  <arg name="gui" default="true" />
   <arg name="urg" default="false" />
   <arg name="lidar_frame" default="laser" />
   <arg name="xacro_option" default="" />
@@ -11,14 +12,22 @@
   <arg name="urg_option" value="lidar:='urg'" if="$(arg urg)" />
   <arg name="urg_option" value="lidar:='none'" unless="$(arg urg)" />
 
+  <!-- raspimouse urdf description -->
   <!-- parameters -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) $(arg urg_option) lidar_frame:='$(arg lidar_frame)' $(arg xacro_option)" />
-  <param name="use_gui" value="$(arg gui)" />
-  <rosparam param="source_list">["joint_states_source"]</rosparam>
+  <!-- in-order processing (\-\-inorder option) became default in ROS Melodic -->
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) $(arg urg_option) lidar_frame:='$(arg lidar_frame)' $(arg xacro_option)" />
   <!-- nodes -->
-  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg gui)" />
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg gui)" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-  <!-- rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_rviz)" />
+
+  <!-- raspimouse urdf viewer -->
+  <group if="$(arg use_rviz)">
+    <!-- parameters -->
+    <rosparam param="source_list">["joint_states_source"]</rosparam>
+    <!-- nodes -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg gui)" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg gui)" />
+    <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  </group>
 </launch>
