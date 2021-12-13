@@ -8,6 +8,7 @@
   <arg name="urg" default="false" />
   <arg name="lidar_frame" default="laser" />
   <arg name="xacro_option" default="" />
+  <arg name="namespace" default="/" />
 
   <arg name="urg_option" value="lidar:='urg'" if="$(arg urg)" />
   <arg name="urg_option" value="lidar:='none'" unless="$(arg urg)" />
@@ -17,8 +18,9 @@
   <!-- in-order processing (\-\-inorder option) became default in ROS Melodic -->
   <param name="robot_description" command="$(find xacro)/xacro $(arg model) $(arg urg_option) lidar_frame:='$(arg lidar_frame)' $(arg xacro_option)" />
   <!-- nodes -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_rviz)" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="tf_prefix" value="$(arg namespace)" />
+  </node>
 
   <!-- raspimouse urdf viewer -->
   <group if="$(arg use_rviz)">
