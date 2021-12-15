@@ -27,12 +27,19 @@ def generate_launch_description():
         'lidar',
         default_value='none',
         description='Set "none" or "urg".')
+    declare_arg_lidar_frame = DeclareLaunchArgument(
+        'lidar_frame',
+        default_value='laser',
+        description='Set lidar link name.')
 
     xacro_file = os.path.join(
         get_package_share_directory('raspimouse_description'),
         'urdf',
         'raspimouse.urdf.xacro')
-    params = {'robot_description': Command(['xacro ', xacro_file, ' lidar:=', LaunchConfiguration('lidar')])}
+    params = {'robot_description': Command(['xacro ', xacro_file,
+                                            ' lidar:=', LaunchConfiguration('lidar'),
+                                            ' lidar_frame:=', LaunchConfiguration('lidar_frame'),
+                                            ])}
 
     rsp = Node(package='robot_state_publisher',
                executable='robot_state_publisher',
@@ -54,6 +61,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         declare_arg_lidar,
+        declare_arg_lidar_frame,
         rsp,
         jsp,
         rviz_node,
