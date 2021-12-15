@@ -31,6 +31,10 @@ def generate_launch_description():
         'lidar_frame',
         default_value='laser',
         description='Set lidar link name.')
+    declare_arg_namespace = DeclareLaunchArgument(
+        'namespace',
+        default_value='',
+        description='Set namespace for tf tree.')
 
     xacro_file = os.path.join(
         get_package_share_directory('raspimouse_description'),
@@ -39,7 +43,8 @@ def generate_launch_description():
     params = {'robot_description': Command(['xacro ', xacro_file,
                                             ' lidar:=', LaunchConfiguration('lidar'),
                                             ' lidar_frame:=', LaunchConfiguration('lidar_frame'),
-                                            ])}
+                                            ]),
+              'frame_prefix': [LaunchConfiguration('namespace'), '/']}
 
     rsp = Node(package='robot_state_publisher',
                executable='robot_state_publisher',
@@ -62,6 +67,7 @@ def generate_launch_description():
     return LaunchDescription([
         declare_arg_lidar,
         declare_arg_lidar_frame,
+        declare_arg_namespace,
         rsp,
         jsp,
         rviz_node,
