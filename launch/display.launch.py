@@ -40,6 +40,10 @@ def generate_launch_description():
         'use_rviz',
         default_value='true',
         description='Set "true" to launch rviz.')
+    declare_arg_gazebo = DeclareLaunchArgument(
+        'gazebo',
+        default_value='false',
+        description='Set "true" to enable gazebo plugins.')
 
     xacro_file = os.path.join(
         get_package_share_directory('raspimouse_description'),
@@ -48,6 +52,7 @@ def generate_launch_description():
     params = {'robot_description': Command(['xacro ', xacro_file,
                                             ' lidar:=', LaunchConfiguration('lidar'),
                                             ' lidar_frame:=', LaunchConfiguration('lidar_frame'),
+                                            ' gazebo_plugin:=', LaunchConfiguration('gazebo'),
                                             ]),
               'frame_prefix': [LaunchConfiguration('namespace'), '/']}
 
@@ -76,6 +81,7 @@ def generate_launch_description():
         declare_arg_lidar_frame,
         declare_arg_namespace,
         declare_arg_use_rviz,
+        declare_arg_gazebo,
         rsp,
         jsp,
         rviz_node,

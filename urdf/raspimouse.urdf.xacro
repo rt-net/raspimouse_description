@@ -13,12 +13,15 @@
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="diffdrive_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
+  <xacro:arg name="diffdrive_config_package" default="raspimouse_description" />
+  <xacro:arg name="diffdrive_config_path" default="/config/diffdrive_controller.yaml" />
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/body/body.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/body/option.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo_ros2_control.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lightsens.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lidar.urdf.xacro" />
 
@@ -76,12 +79,6 @@
   <!-- =============== Gazebo =============== -->
 
   <xacro:if value="$(arg gazebo_plugin)">
-    <gazebo>
-      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-        <robotNamespace>$(arg robot_namespace)</robotNamespace>
-      </plugin>
-    </gazebo>
-
     <!-- Sensors -->
     <xacro:lightsensor_gazebo prefix="rf" base_rad="0"
       rad_range="0.3" min_range="0.01" max_range="0.6"
@@ -105,8 +102,12 @@
     </xacro:if>
 
     <!-- DiffDriveController -->
-    <xacro:diffdrive_gazebo publish_tf="$(arg tf)" publish_jointstate="$(arg jointstate)"
-      robot_namespace="$(arg diffdrive_namespace)" />
+    <xacro:raspimouse_gazebo_ros2_control_settings
+      name_hardware="GazeboSystem"
+      name_right_wheel_joint="right_wheel_joint"
+      name_left_wheel_joint="left_wheel_joint"
+      config_file_package="$(arg diffdrive_config_package)"
+      config_file_path="$(arg diffdrive_config_path)" />
   </xacro:if>
 
   <raspimouse_on_gazebo/>
