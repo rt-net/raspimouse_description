@@ -11,7 +11,7 @@
     <child link="${prefix}_wheel"/>
     <limit effort="70" velocity="15"/>
     <safety_controller  k_velocity="10" />
-    <dynamics damping="0.0" friction="1.0" />
+    <dynamics damping="0.0" friction="0.0" />
   </joint>
   <link name="${prefix}_wheel">
     <visual>
