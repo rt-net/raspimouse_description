@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lidar.gazebo.xacro"/>
 
-  <xacro:arg name="laser_visual" default="false"/>
+  <xacro:arg name="laser_visual" default="true"/>
 
   <xacro:macro name="lidar_urg_sensor" params="sensor_link_name parent *joint_origin">
     <joint name="${sensor_link_name}_joint" type="fixed">
