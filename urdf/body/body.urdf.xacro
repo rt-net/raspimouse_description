@@ -1,59 +1,37 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="base" params="parent lidar *joint_origin">
+  <xacro:include filename="$(find raspimouse_description)/urdf/body/body.gazebo.xacro" />
+
+  <xacro:macro name="base" params="parent *joint_origin">
     <joint name="base_joint" type="fixed">
       <xacro:insert_block name="joint_origin" />
       <parent link="${parent}" />
       <child link="base_link" />
     </joint>
     <link name="base_link">
-
-      <xacro:if value="${lidar == 'none'}">
-        <visual>
-          <geometry>
-            <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body.dae" />
-          </geometry>
-        </visual>
-        <collision>
-          <!-- <geometry> -->
-            <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body.dae" /> -->
-          <!-- </geometry> -->
-          <origin rpy="0 0 0" xyz="0.005 0 0.040" />
-          <geometry>
-            <box size="0.117 0.080 0.080" />
-          </geometry>
-        </collision>
-        <inertial>
-          <origin xyz="-0.005075 -0.000427 0.029879" />
-          <mass value="0.7186" />
-          <inertia ixx="0.001238161833" ixy="0.000000904986" iyy="0.001368529369"
-                   ixz="0.000100297310" iyz="0.000022118177" izz="0.000784319117" />
-        </inertial>
-      </xacro:if>
-
-      <xacro:if value="${lidar == 'urg'}">
-        <visual>
-          <geometry>
-            <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body-TopPlate.dae"/>
-          </geometry>
-        </visual>
-        <collision>
-          <!-- <geometry> -->
-            <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/RasPiMouse_body-TopPlate.dae" /> -->
-          <!-- </geometry> -->
-          <origin rpy="0 0 0" xyz="0.005 0 0.0435" />
-          <geometry>
-            <box size="0.117 0.080 0.087" />
-          </geometry>
-        </collision>
-        <inertial>
-          <origin xyz="-0.003851 -0.000443 0.031714" />
-          <mass value="0.759881"/>
-          <inertia ixx="0.001561279589" ixy="0.00000150035" iyy="0.001698462955"
-                   ixz="0.000042679786" iyz="0.000023629024" izz="0.000855782529"/>
-        </inertial>
-      </xacro:if>
+      <visual>
+        <geometry>
+          <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_body.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <!-- <geometry> -->
+          <!-- <mesh filename="package://raspimouse_description/meshes/dae/body/raspimouse_body.dae" /> -->
+        <!-- </geometry> -->
+        <origin rpy="0 0 0" xyz="0.005 0 0.040" />
+        <geometry>
+          <box size="0.117 0.080 0.080" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-0.005075 0.0 0.03" />
+        <mass value="0.7186" />
+        <xacro:box_inertia m="0.7" x="0.1" y="0.08" z="0.08" />
+        <!-- <origin xyz="-0.005075 -0.000427 0.029879" /> -->
+        <!-- <inertia ixx="0.001238161833" ixy="0.000000904986" iyy="0.001368529369"
+                    ixz="0.000100297310" iyz="0.000022118177" izz="0.000784319117" /> -->
+      </inertial>
     </link>
   </xacro:macro>
 </robot>

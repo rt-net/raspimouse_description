@@ -6,6 +6,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:arg name="lidar" default="none" />
+  <xacro:arg name="lidar_frame" default="laser" />
   <xacro:arg name="gazebo_plugin" default="false" />
   <xacro:arg name="tf" default="true" />
   <xacro:arg name="jointstate" default="true" />
@@ -15,16 +16,17 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/body/body.urdf.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/body/option.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lightsens.urdf.xacro" />
-  <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lrf.urdf.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lidar.urdf.xacro" />
 
   <!-- =============== Link & Joint =============== -->
   <!-- Base -->
   <link name="base_footprint" />
 
-  <xacro:base parent="base_footprint" lidar="$(arg lidar)">
+  <xacro:base parent="base_footprint">
     <origin xyz="0 0 0.00185" />
   </xacro:base>
 
@@ -39,26 +41,35 @@
   </xacro:wheel>
 
   <!-- Sensors -->
-  <xacro:light_sensor prefix="rf" parent="base_link">
+  <link name="lightsensors" />
+  <joint name="lightsensors_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lightsensors" />
+  </joint>
+
+  <xacro:light_sensor prefix="rf" parent="lightsensors">
     <origin xyz="0.04 -0.045 0.032" rpy="0 0 0" />
   </xacro:light_sensor>
 
-  <xacro:light_sensor prefix="rs" parent="base_link">
+  <xacro:light_sensor prefix="rs" parent="lightsensors">
     <origin xyz="0.059 -0.01 0.032" rpy="0 0 -1.04" />
   </xacro:light_sensor>
 
-  <xacro:light_sensor prefix="ls" parent="base_link">
+  <xacro:light_sensor prefix="ls" parent="lightsensors">
     <origin xyz="0.059 0.01 0.032" rpy="0 0 1.04" />
   </xacro:light_sensor>
 
-  <xacro:light_sensor prefix="lf" parent="base_link">
+  <xacro:light_sensor prefix="lf" parent="lightsensors">
     <origin xyz="0.04 0.045 0.032" rpy="0 0 0" />
   </xacro:light_sensor>
 
   <xacro:if value="${'$(arg lidar)' == 'urg'}">
-    <xacro:lrf_sensor prefix="urg_lrf_link" parent="base_link">
+    <xacro:lidar_urg_mount prefix="urg_mount" parent="base_link">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:lidar_urg_mount>
+    <xacro:lidar_urg_sensor sensor_link_name="$(arg lidar_frame)" parent="urg_mount_link">
       <origin xyz="0.0 0.0 0.14060" rpy="0 0 0" />
-    </xacro:lrf_sensor>
+    </xacro:lidar_urg_sensor>
   </xacro:if>
 
 
@@ -90,7 +101,7 @@
       robotdescription_namespace="$(arg robot_namespace)" />
 
     <xacro:if value="${'$(arg lidar)' == 'urg'}">
-      <xacro:lrf_gazebo prefix="urg" base_rad="0" rad_range="4.71" min_range="0.10" max_range="5.6" />
+      <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="4.71" min_range="0.10" max_range="5.6" />
     </xacro:if>
 
     <!-- DiffDriveController -->

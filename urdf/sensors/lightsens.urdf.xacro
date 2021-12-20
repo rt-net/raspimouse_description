@@ -8,16 +8,18 @@
     <joint name="${prefix}_joint" type="fixed">
       <xacro:insert_block name="joint_origin" />
       <parent link="${parent}" />
-      <child link="${prefix}" />
+      <child link="${prefix}_lightsensor_link" />
     </joint>
 
-    <link name="${prefix}">
+    <link name="${prefix}_lightsensor_link">
       <visual>
         <geometry>
           <box size="0.01 0.005 0.007" />
         </geometry>
+        <material name="Gray">
+          <color rgba="0.2 0.2 0.2 1" />
+        </material>
       </visual>
-      <material name="Gray" />
       <inertial>
         <mass value="0.000001" />
         <origin xyz="0 0 0" />
@@ -26,8 +28,5 @@
           izz="0.0001" />
       </inertial>
     </link>
-
-    <!-- Set up laser gazebo details -->
-    <!-- <hokuyo_laser /> -->
   </xacro:macro>
 </robot>
