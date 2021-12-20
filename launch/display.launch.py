@@ -19,6 +19,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
+from launch_ros.actions import PushRosNamespace
 from launch.substitutions import Command
 from launch.substitutions import LaunchConfiguration
 
@@ -51,6 +52,8 @@ def generate_launch_description():
                                             ]),
               'frame_prefix': [LaunchConfiguration('namespace'), '/']}
 
+    push_ns = PushRosNamespace([LaunchConfiguration('namespace')])
+
     rsp = Node(package='robot_state_publisher',
                executable='robot_state_publisher',
                output='both',
@@ -76,6 +79,7 @@ def generate_launch_description():
         declare_arg_lidar_frame,
         declare_arg_namespace,
         declare_arg_use_rviz,
+        push_ns,
         rsp,
         jsp,
         rviz_node,
