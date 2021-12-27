@@ -36,6 +36,7 @@
 
     <gazebo>
       <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
         <parameters>$(find ${config_file_package})${config_file_path}</parameters>
       </plugin>
     </gazebo>
