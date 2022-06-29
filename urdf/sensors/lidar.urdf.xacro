@@ -75,7 +75,7 @@
       <visual>
         <origin xyz="-0.022 -0.031 -0.0228" rpy="0 0 0" />
         <geometry>
-          <cylinder length="0.01" radius="0.005" />
+          <cylinder length="0.02" radius="0.005" />
         </geometry>
         <material name="dark" />
       </visual>
