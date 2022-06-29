@@ -44,55 +44,57 @@
     </joint>
 
     <link name="${sensor_link_name}">
-      <visual>
-        <geometry>
-          <mesh filename="package://raspimouse_description/meshes/stl/robotis-lds01.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-        <material name="dark"/>
-      </visual>
-      <!-- Legs -->
-      <visual>
-        <origin xyz="0.035 0.025 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.02" radius="0.005" />
-        </geometry>
-        <material name="dark" />
-      </visual>
-      <visual>
-        <origin xyz="0.035 -0.025 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.02" radius="0.005" />
-        </geometry>
-        <material name="dark" />
-      </visual>
-      <visual>
-        <origin xyz="-0.022 0.031 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.02" radius="0.005" />
-        </geometry>
-        <material name="dark" />
-      </visual>
-      <visual>
-        <origin xyz="-0.022 -0.031 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.02" radius="0.005" />
-        </geometry>
-        <material name="dark" />
-      </visual>
-      <collision>
-        <!-- <geometry> -->
-          <!-- <mesh filename="package://raspimouse_description/meshes/stl/robotis-lds01.stl"/> -->
-        <!-- </geometry> -->
-        <geometry>
-          <cylinder radius="0.035" length="0.040"/>
-        </geometry>
-        <origin xyz="0 0 -0.01815" />
-      </collision>
-      <inertial>
-        <mass value="0.160" />
-        <origin xyz="0 0 0" />
-        <xacro:cylinder_inertia m="0.16" r="0.025" h="0.07" />
-      </inertial>
+      <xacro:if value="${'$(arg lidar)' == 'lds'}">
+        <visual>
+          <geometry>
+            <mesh filename="package://raspimouse_description/meshes/stl/robotis-lds01.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="dark"/>
+        </visual>
+        <!-- Legs -->
+        <visual>
+          <origin xyz="0.035 0.025 -0.0228" rpy="0 0 0" />
+          <geometry>
+            <cylinder length="0.02" radius="0.005" />
+          </geometry>
+          <material name="dark" />
+        </visual>
+        <visual>
+          <origin xyz="0.035 -0.025 -0.0228" rpy="0 0 0" />
+          <geometry>
+            <cylinder length="0.02" radius="0.005" />
+          </geometry>
+          <material name="dark" />
+        </visual>
+        <visual>
+          <origin xyz="-0.022 0.031 -0.0228" rpy="0 0 0" />
+          <geometry>
+            <cylinder length="0.02" radius="0.005" />
+          </geometry>
+          <material name="dark" />
+        </visual>
+        <visual>
+          <origin xyz="-0.022 -0.031 -0.0228" rpy="0 0 0" />
+          <geometry>
+            <cylinder length="0.02" radius="0.005" />
+          </geometry>
+          <material name="dark" />
+        </visual>
+        <collision>
+          <!-- <geometry> -->
+            <!-- <mesh filename="package://raspimouse_description/meshes/stl/robotis-lds01.stl"/> -->
+          <!-- </geometry> -->
+          <geometry>
+            <cylinder radius="0.035" length="0.040"/>
+          </geometry>
+          <origin xyz="0 0 -0.01815" />
+        </collision>
+        <inertial>
+          <mass value="0.160" />
+          <origin xyz="0 0 0" />
+          <xacro:cylinder_inertia m="0.16" r="0.025" h="0.07" />
+        </inertial>
+      </xacro:if>
     </link>
   </xacro:macro>
 </robot>
