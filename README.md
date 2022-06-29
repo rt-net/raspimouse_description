@@ -45,9 +45,9 @@ ros2 launch raspimouse_description display.launch.py
 This repository is licensed under the MIT license, see [LICENSE](./LICENSE).  
 Unless attributed otherwise, everything in this repository is under the MIT license.
 
-The file [robotis_lds01.stl](./meshes/stl/robotis-lds01.stl) is licensed under the Apache License 2.0.
-It is released from ROBOTIS. The original file is released [here](https://github.com/ROBOTIS-GIT/turtlebot3/blob/melodic-devel/turtlebot3_description/meshes/sensors/lds.stl).
-
 ### Acknowledgements
 
 Special thanks to https://gbiggs.github.io/rosjp_urdf_tutorial_text/index.html
+
+The file [robotis_lds01.stl](./meshes/stl/robotis-lds01.stl) is released from ROBOTIS and licensed under the [Apache License 2.0](https://github.com/ROBOTIS-GIT/turtlebot3/blob/a3c515b350a752b93ed8de4a009442e80e9d787d/LICENSE).
+The original file is released in [turtlebot3_description package](https://github.com/ROBOTIS-GIT/turtlebot3/blob/a3c515b350a752b93ed8de4a009442e80e9d787d/meshes/sensors/lds.stl).
