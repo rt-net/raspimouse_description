@@ -36,7 +36,7 @@
   </xacro:macro>
 
   
-  <xacro:macro name="lidar_multi_sensor" params="sensor_link_name parent *joint_origin">
+  <xacro:macro name="lidar_multi_sensor" params="sensor_link_name parent lidar *joint_origin">
     <joint name="${sensor_link_name}_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
