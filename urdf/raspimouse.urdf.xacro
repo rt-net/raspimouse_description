@@ -125,7 +125,7 @@
     </xacro:if>
 
     <xacro:if value="${'$(arg lidar)' == 'rplidar'}">
-      <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="4.71" min_range="0.10" max_range="5.6" />
+      <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="6.28" min_range="0.15" max_range="10" />
     </xacro:if>
 
     <!-- DiffDriveController -->
