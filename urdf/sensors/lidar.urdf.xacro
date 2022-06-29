@@ -53,10 +53,10 @@
         <!-- <geometry> -->
           <!-- <mesh filename="package://raspimouse_description/meshes/stl/robotis-lds01.stl"/> -->
         <!-- </geometry> -->
-        <origin xyz="0 0 -0.01815" />
         <geometry>
-          <cylinder radius="0.025" length="0.070"/>
+          <cylinder radius="0.035" length="0.040"/>
         </geometry>
+        <origin xyz="0 0 -0.01815" />
       </collision>
       <inertial>
         <mass value="0.160" />
