@@ -48,6 +48,7 @@
         <geometry>
           <mesh filename="package://raspimouse_description/meshes/stl/robotis-lds01.stl" scale="0.001 0.001 0.001"/>
         </geometry>
+        <material name="dark"/>
       </visual>
       <collision>
         <!-- <geometry> -->

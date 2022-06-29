@@ -41,6 +41,9 @@
         <geometry>
           <mesh filename="package://raspimouse_description/meshes/stl/RasPiMouse_MultiLiDARMount.stl" scale="0.001 0.001 0.001"/>
         </geometry>
+        <material name="Light Black">
+          <color rgba="0.2 0.2 0.2 1.0" />
+        </material>
       </visual>
       <collision>
         <!-- <geometry> -->
