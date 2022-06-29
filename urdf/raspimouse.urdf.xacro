@@ -74,10 +74,10 @@
 
   <xacro:if value="${'$(arg lidar)' == 'lds'}">
     <xacro:lidar_multi_mount prefix="lds_multi_mount" parent="base_link">
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0.0855" rpy="0 0 0" />
     </xacro:lidar_multi_mount>
     <xacro:lidar_multi_sensor sensor_link_name="$(arg lidar_frame)" parent="lds_multi_mount_link">
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="0.0 0.0 0.035" rpy="0 0 3.14" />
     </xacro:lidar_multi_sensor>
   </xacro:if>
 
