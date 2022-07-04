@@ -77,7 +77,7 @@
       <origin xyz="0 0 0.0855" rpy="0 0 0" />
     </xacro:lidar_multi_mount>
     <xacro:lidar_lds_sensor sensor_link_name="$(arg lidar_frame)" parent="$(arg lidar)_multi_mount_link">
-      <origin xyz="0.0 0.0 0.035" rpy="0 0 3.14" />
+      <origin xyz="0.0 0.0 0.0345" rpy="0 0 3.14" />
     </xacro:lidar_lds_sensor>
   </xacro:if>
 
