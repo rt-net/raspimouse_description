@@ -32,11 +32,19 @@ source install/setup.bash
 
 ## How to Use
 
-Display a Raspberry Pi Mouse robot model on RViz2 with the following comand:
+Display a Raspberry Pi Mouse robot model on RViz2 with the following command:
 
 ```sh
 ros2 launch raspimouse_description display.launch.py
 ```
+
+You can also display a LiDAR mounted robot model with the following command:
+
+```sh
+ros2 launch raspimouse_description display.launch.py lidar:=rplidar
+```
+
+The `lidar` option supports `urg`, `lds`, and `rplidar`.
 
 ## LICENSE
 
