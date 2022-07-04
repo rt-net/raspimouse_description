@@ -86,6 +86,7 @@
       <origin xyz="0 0 0.0855" rpy="0 0 0" />
     </xacro:lidar_multi_mount>
     <xacro:lidar_rp_sensor sensor_link_name="$(arg lidar_frame)" parent="$(arg lidar)_multi_mount_link">
+      <origin xyz="0.0 0.0 0.0445" rpy="0 0 3.14"/> <!-- The LIDAR is about 13cm from the ground-->
     </xacro:lidar_rp_sensor>
   </xacro:if>
 
