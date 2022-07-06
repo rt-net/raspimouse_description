@@ -43,12 +43,9 @@
         </material>
       </visual>
       <collision>
-        <!-- <geometry> -->
-          <!-- <mesh filename="package://raspimouse_description/meshes/stl/RasPiMouse_MultiLiDARMount.stl" scale="0.001 0.001 0.001"/> -->
-        <!-- </geometry> -->
-        <origin rpy="0 0 0" xyz="0.005 0 0.0435" />
+        <origin rpy="0 0 0" xyz="0.0 0 0.002" />
         <geometry>
-          <box size="0.117 0.080 0.087" />
+          <box size="0.135 0.095 0.005" />
         </geometry>
       </collision>
       <inertial>
