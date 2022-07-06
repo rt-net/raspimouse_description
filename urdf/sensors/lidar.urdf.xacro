@@ -82,7 +82,7 @@
         <geometry>
           <cylinder radius="0.035" length="0.040"/>
         </geometry>
-        <origin xyz="0 0 -0.01815" />
+        <origin xyz="0 0 -0.008" />
       </collision>
       <inertial>
         <mass value="0.160" />
@@ -109,9 +109,9 @@
       <xacro:lidar_legs length="0.027" radius="0.003" z_pos="-0.028"/>
       <collision>
         <geometry>
-          <cylinder radius="0.048" length="0.055"/>
+          <cylinder radius="0.036" length="0.042"/>
         </geometry>
-        <origin xyz="0 0 -0.01815" />
+        <origin xyz="0 0 -0.008" />
       </collision>
       <inertial>
         <mass value="0.160" />
