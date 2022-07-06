@@ -87,7 +87,7 @@
       <inertial>
         <mass value="0.160" />
         <origin xyz="0 0 0" />
-        <xacro:cylinder_inertia m="0.16" r="0.025" h="0.07" />
+        <xacro:cylinder_inertia m="0.16" r="0.025" h="0.03" />
       </inertial>
     </link>
   </xacro:macro>
@@ -116,7 +116,7 @@
       <inertial>
         <mass value="0.160" />
         <origin xyz="0 0 0" />
-        <xacro:cylinder_inertia m="0.16" r="0.025" h="0.07" />
+        <xacro:cylinder_inertia m="0.16" r="0.025" h="0.03" />
       </inertial>
     </link>
   </xacro:macro>
