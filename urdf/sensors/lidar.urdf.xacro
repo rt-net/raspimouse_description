@@ -5,6 +5,37 @@
 
   <xacro:arg name="laser_visual" default="false"/>
 
+  <xacro:macro name="lidar_legs" params="length radius z_pos">
+    <visual>
+      <origin xyz="0.035 0.025 ${z_pos}" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="${length}" radius="${radius}" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <visual>
+      <origin xyz="0.035 -0.025 ${z_pos}" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="${length}" radius="${radius}" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <visual>
+      <origin xyz="-0.022 0.031 ${z_pos}" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="${length}" radius="${radius}" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <visual>
+      <origin xyz="-0.022 -0.031 ${z_pos}" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="${length}" radius="${radius}" />
+      </geometry>
+      <material name="black" />
+    </visual>
+  </xacro:macro>
+
   <xacro:macro name="lidar_urg_sensor" params="sensor_link_name parent *joint_origin">
     <joint name="${sensor_link_name}_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
@@ -49,35 +80,7 @@
         </geometry>
         <material name="black"/>
       </visual>
-      <!-- Legs -->
-      <visual>
-        <origin xyz="0.035 0.025 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.019" radius="0.005" />
-        </geometry>
-        <material name="black" />
-      </visual>
-      <visual>
-        <origin xyz="0.035 -0.025 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.019" radius="0.005" />
-        </geometry>
-        <material name="black" />
-      </visual>
-      <visual>
-        <origin xyz="-0.022 0.031 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.019" radius="0.005" />
-        </geometry>
-        <material name="black" />
-      </visual>
-      <visual>
-        <origin xyz="-0.022 -0.031 -0.0228" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.019" radius="0.005" />
-        </geometry>
-        <material name="black" />
-      </visual>
+      <xacro:lidar_legs length="0.019" radius="0.005" z_pos="-0.0228"/>
       <collision>
         <!-- <geometry> -->
           <!-- <mesh filename="package://raspimouse_description/meshes/stl/robotis_lds01.stl"/> -->
@@ -109,35 +112,7 @@
         </geometry>
         <material name="black"/>
       </visual>
-      <!-- Legs -->
-      <visual>
-        <origin xyz="0.035 0.025 -0.028" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.027" radius="0.003" />
-        </geometry>
-        <material name="black" />
-      </visual>
-      <visual>
-        <origin xyz="0.035 -0.025 -0.028" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.027" radius="0.003" />
-        </geometry>
-        <material name="black" />
-      </visual>
-      <visual>
-        <origin xyz="-0.022 0.031 -0.028" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.027" radius="0.003" />
-        </geometry>
-        <material name="black" />
-      </visual>
-      <visual>
-        <origin xyz="-0.022 -0.031 -0.028" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.027" radius="0.003" />
-        </geometry>
-        <material name="black" />
-      </visual>
+      <xacro:lidar_legs length="0.027" radius="0.003" z_pos="-0.028"/>
       <collision>
         <!-- <geometry> -->
           <!-- <mesh filename="package://raspimouse_description/meshes/stl/robotis_lds01.stl"/> -->
