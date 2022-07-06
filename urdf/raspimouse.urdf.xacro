@@ -13,6 +13,10 @@
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="diffdrive_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
+  
+  <material name="black">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/body/body.urdf.xacro" />
