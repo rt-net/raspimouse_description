@@ -49,7 +49,7 @@
         </geometry>
       </collision>
       <inertial>
-        <origin xyz="0 0 0.0" />
+        <origin xyz="0 0 0.002" />
         <mass value="0.04"/>
         <xacro:box_inertia m="0.04" x="0.13" y="0.1" z="0.002" />
       </inertial>
