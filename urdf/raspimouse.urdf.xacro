@@ -13,6 +13,10 @@
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="diffdrive_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
+  
+  <material name="black">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/body/body.urdf.xacro" />
@@ -72,6 +76,23 @@
     </xacro:lidar_urg_sensor>
   </xacro:if>
 
+  <xacro:if value="${'$(arg lidar)' == 'lds'}">
+    <xacro:lidar_multi_mount prefix="lds_multi_mount" parent="base_link">
+      <origin xyz="0 0 0.0855" rpy="0 0 0" />
+    </xacro:lidar_multi_mount>
+    <xacro:lidar_lds_sensor sensor_link_name="$(arg lidar_frame)" parent="$(arg lidar)_multi_mount_link">
+      <origin xyz="0.0 0.0 0.0345" rpy="0 0 3.14" />
+    </xacro:lidar_lds_sensor>
+  </xacro:if>
+
+  <xacro:if value="${'$(arg lidar)' == 'rplidar'}">
+    <xacro:lidar_multi_mount prefix="rplidar_multi_mount" parent="base_link">
+      <origin xyz="0 0 0.0855" rpy="0 0 0" />
+    </xacro:lidar_multi_mount>
+    <xacro:lidar_rp_sensor sensor_link_name="$(arg lidar_frame)" parent="$(arg lidar)_multi_mount_link">
+      <origin xyz="0.0 0.0 0.0445" rpy="0 0 3.14"/> <!-- The LIDAR is about 13cm from the ground-->
+    </xacro:lidar_rp_sensor>
+  </xacro:if>
 
   <!-- =============== Gazebo =============== -->
 
@@ -102,6 +123,14 @@
 
     <xacro:if value="${'$(arg lidar)' == 'urg'}">
       <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="4.71" min_range="0.10" max_range="5.6" />
+    </xacro:if>
+
+    <xacro:if value="${'$(arg lidar)' == 'lds'}">
+      <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="6.28" min_range="0.12" max_range="3.50" />
+    </xacro:if>
+
+    <xacro:if value="${'$(arg lidar)' == 'rplidar'}">
+      <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="6.28" min_range="0.15" max_range="12" />
     </xacro:if>
 
     <!-- DiffDriveController -->

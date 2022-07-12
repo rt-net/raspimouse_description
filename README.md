@@ -32,11 +32,19 @@ source install/setup.bash
 
 ## How to Use
 
-Display a Raspberry Pi Mouse robot model on RViz2 with the following comand:
+Display a Raspberry Pi Mouse robot model on RViz2 with the following command:
 
 ```sh
 ros2 launch raspimouse_description display.launch.py
 ```
+
+You can also display a LiDAR mounted robot model with the following command:
+
+```sh
+ros2 launch raspimouse_description display.launch.py lidar:=rplidar
+```
+
+The `lidar` option supports `urg`, `lds`, and `rplidar`.
 
 ## LICENSE
 
@@ -48,3 +56,6 @@ Unless attributed otherwise, everything in this repository is under the MIT lice
 ### Acknowledgements
 
 Special thanks to https://gbiggs.github.io/rosjp_urdf_tutorial_text/index.html
+
+The file [robotis_lds01.stl](./meshes/stl/robotis_lds01.stl) is released from ROBOTIS and licensed under the [Apache License 2.0](https://github.com/ROBOTIS-GIT/turtlebot3/blob/a3c515b350a752b93ed8de4a009442e80e9d787d/LICENSE).
+The original file is released in [turtlebot3_description package](https://github.com/ROBOTIS-GIT/turtlebot3/blob/a3c515b350a752b93ed8de4a009442e80e9d787d/turtlebot3_description/meshes/sensors/lds.stl).

@@ -28,7 +28,7 @@ def generate_launch_description():
     declare_arg_lidar = DeclareLaunchArgument(
         'lidar',
         default_value='none',
-        description='Set "none" or "urg".')
+        description='Set "none", "urg", "lds", or "rplidar".')
     declare_arg_lidar_frame = DeclareLaunchArgument(
         'lidar_frame',
         default_value='laser',
