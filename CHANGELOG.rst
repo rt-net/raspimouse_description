@@ -2,8 +2,8 @@
 Changelog for package raspimouse_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1 (2023-01-31)
+------------------
 * Updates README
 * Update the license year to 2022
 * Adds LiDAR (`#38 <https://github.com/rt-net/raspimouse_description/issues/38>`_)
