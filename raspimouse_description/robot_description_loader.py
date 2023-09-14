@@ -51,7 +51,7 @@ class RobotDescriptionLoader():
                 ' use_line_sensor:=', self.use_line_sensor,
                 ' use_lidar_urg:=', self.use_lidar_urg,
                 ' use_lidar_lds:=', self.use_lidar_lds,
-                ' use_lidar_rplidar:=', self.use_rplidar,
+                ' use_lidar_rplidar:=', self.use_lidar_rplidar,
                 ' use_lidar_imu:=', self.use_imu,
                 ' gz_control_config_package:=', self.gz_control_config_package,
                 ' gz_control_config_file_path:=', self.gz_control_config_file_path
