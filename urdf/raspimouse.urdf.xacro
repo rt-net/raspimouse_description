@@ -13,6 +13,15 @@
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="diffdrive_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
+  <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="use_rgb_camera" default="false" />
+  <xacro:arg name="use_line_sensor" default="false" />
+  <xacro:arg name="use_lidar_urg" default="false" />
+  <xacro:arg name="use_lidar_lds" default="false" />
+  <xacro:arg name="use_lidar_rplidar" default="false" />
+  <xacro:arg name="use_imu" default="false" />
+  <xacro:arg name="gz_control_config_package" default="" />
+  <xacro:arg name="gz_control_config_file_path" default="" />
   
   <material name="black">
     <color rgba="0.2 0.2 0.2 1.0"/>
