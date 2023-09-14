@@ -84,4 +84,3 @@ def generate_launch_description():
         jsp,
         rviz_node,
         ])
-
