@@ -5,11 +5,12 @@
   <version>1.0.1</version>
   <description>The raspimouse_description package</description>
   <maintainer email="support@rt-net.jp">RT Corporation</maintainer>
-  <maintainer email="daisuke.sato@rt-net.jp">Daisuke Sato</maintainer>
-  <maintainer email="s.aoki@rt-net.jp">Daisuke Sato</maintainer>
-  <maintainer email="yusuke.kato@rt-net.jp">Daisuke Sato</maintainer>
 
   <license>MIT</license>
+  
+  <author email="daisuke.sato@rt-net.jp">Daisuke Sato</author>
+  <author email="s.aoki@rt-net.jp">Shota Aoki</author>
+  <author email="yusuke.kato@rt-net.jp">Yusuke Kato</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
