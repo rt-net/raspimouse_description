@@ -5,8 +5,9 @@
   <version>1.0.1</version>
   <description>The raspimouse_description package</description>
   <maintainer email="shop@rt-net.jp">RT Corporation</maintainer>
-  <author email="daisuke.sato@rt-net.jp">Daisuke Sato</author>
-  <author email="s.aoki@rt-net.jp">Daisuke Sato</author>
+  <maintainer email="daisuke.sato@rt-net.jp">Daisuke Sato</maintainer>
+  <maintainer email="s.aoki@rt-net.jp">Daisuke Sato</maintainer>
+  <maintainer email="yusuke.kato@rt-net.jp">Daisuke Sato</maintainer>
 
   <license>MIT</license>
 
