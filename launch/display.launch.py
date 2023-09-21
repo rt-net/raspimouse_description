@@ -24,54 +24,26 @@ from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    declare_use_rgb_camera = DeclareLaunchArgument(
-        'use_rgb_camera',
-        default_value='false',
-        description='Set true to attach the rgb camera model.'
-    )
-    declare_use_line_sensor = DeclareLaunchArgument(
-        'use_line_sensor',
-        default_value='false',
-        description='Set true to attach the line sensor model.'
-    )
-    declare_use_lidar_urg = DeclareLaunchArgument(
-        'use_lidar_urg',
-        default_value='false',
-        description='Set true to attach the URG-04LX-UG01 model.'
-    )
-    declare_use_lidar_lds = DeclareLaunchArgument(
-        'use_lidar_lds',
-        default_value='false',
-        description='Set true to attach the LDS-01 model.'
-    )
-    declare_use_lidar_rplidar = DeclareLaunchArgument(
-        'use_lidar_rplidar',
-        default_value='false',
-        description='Set true to attach the RPLiDAR A1 model.'
-    )
-    declare_use_imu = DeclareLaunchArgument(
-        'use_imu',
-        default_value='false',
-        description='Set true to attach the IMU model.'
-    )
+    declare_arg_lidar = DeclareLaunchArgument(
+        'lidar',
+        default_value='none',
+        description='Set "none", "urg", "lds", or "rplidar".')
+    declare_arg_lidar_frame = DeclareLaunchArgument(
+        'lidar_frame',
+        default_value='laser',
+        description='Set lidar link name.')
     declare_arg_namespace = DeclareLaunchArgument(
         'namespace',
         default_value='',
-        description='Set namespace for tf tree.'
-    )
+        description='Set namespace for tf tree.')
     declare_arg_use_rviz = DeclareLaunchArgument(
         'use_rviz',
         default_value='true',
-        description='Set "true" to launch rviz.'
-    )
+        description='Set "true" to launch rviz.')
 
     description_loader = RobotDescriptionLoader()
-    description_loader.use_rgb_camera = LaunchConfiguration('use_rgb_camera')
-    description_loader.use_line_sensor = LaunchConfiguration('use_line_sensor')
-    description_loader.use_lidar_urg = LaunchConfiguration('use_lidar_urg')
-    description_loader.use_lidar_lds = LaunchConfiguration('use_lidar_lds')
-    description_loader.use_lidar_rplidar = LaunchConfiguration('use_lidar_rplidar')
-    description_loader.use_imu = LaunchConfiguration('use_imu')
+    description_loader.lidar = LaunchConfiguration('lidar')
+    description_loader.lidar_frame = LaunchConfiguration('lidar_frame')
 
     push_ns = PushRosNamespace([LaunchConfiguration('namespace')])
 
@@ -96,12 +68,8 @@ def generate_launch_description():
                      condition=IfCondition(LaunchConfiguration('use_rviz')))
 
     return LaunchDescription([
-        declare_use_rgb_camera,
-        declare_use_line_sensor,
-        declare_use_lidar_urg,
-        declare_use_lidar_lds,
-        declare_use_lidar_rplidar,
-        declare_use_imu,
+        declare_arg_lidar,
+        declare_arg_lidar_frame,
         declare_arg_namespace,
         declare_arg_use_rviz,
         push_ns,
