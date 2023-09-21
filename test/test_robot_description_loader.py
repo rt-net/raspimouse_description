@@ -44,3 +44,39 @@ def test_change_description_path():
     with pytest.raises(Exception) as e:
         exec_load(rdl)
     assert e.value
+
+
+def test_lidar_none():
+    # lidarが変更されて、xacroに何もセットされないことを期待
+    rdl = RobotDescriptionLoader()
+    rdl.lidar = 'none'
+    assert 'laser' not in exec_load(rdl)
+
+
+def test_lidar_urg():
+    # lidarが変更されて、xacroにURGがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.lidar = 'urg'
+    assert 'urg_mount_link' in exec_load(rdl)
+
+
+def test_lidar_lds():
+    # lidarが変更されて、xacroにLDSがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.lidar = 'lds'
+    assert 'lds_multi_mount_link' in exec_load(rdl)
+
+
+def test_lidar_rplidar():
+    # lidarが変更されて、xacroにRPLiDARがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.lidar = 'rplidar'
+    assert 'rplidar_multi_mount_link' in exec_load(rdl)
+
+
+def test_lidar_frame():
+    # lidar_frameが変更されて、xacroにlaserがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.lidar = 'urg'
+    rdl.lidar_frame = 'laser'
+    assert 'laser' in exec_load(rdl)
