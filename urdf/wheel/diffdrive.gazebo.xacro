@@ -3,8 +3,35 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
 
+  <xacro:macro name="gazebo_robot_settings"
+    params="name_hardware
+            name_right_wheel_joint
+            name_left_wheel_joint
+            use_gazebo
+            config_file_package
+            config_file_path
+            ">
+
+    <gazebo>
+      <xacro:if value="${use_gazebo}">
+        <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+          <parameters>$(find ${config_file_package})/${config_file_path}</parameters>
+        </plugin>
+      </xacro:if>
+
+      <xacro:unless value="${use_gazebo}">
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+          <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+          <parameters>$(find ${config_file_package})/${config_file_path}</parameters>
+        </plugin>
+      </xacro:unless>
+
+    </gazebo>
+  </xacro:macro>
+
   <xacro:macro name="diffdrive_gazebo" params="publish_tf publish_jointstate robot_namespace">
     <gazebo>
+      
       <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
         <!-- Name of robot namespace of DiffDriveController -->
         <robotNamespace>${robot_namespace}</robotNamespace>

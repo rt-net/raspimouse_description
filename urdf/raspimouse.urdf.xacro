@@ -13,6 +13,9 @@
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="diffdrive_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
+  <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="gz_control_config_package" default="" />
+  <xacro:arg name="gz_control_config_file_path" default="" />
   
   <material name="black">
     <color rgba="0.2 0.2 0.2 1.0"/>
@@ -23,6 +26,7 @@
   <xacro:include filename="$(find raspimouse_description)/urdf/body/option.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo_ros2_control.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lightsens.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lidar.urdf.xacro" />
 
@@ -95,6 +99,24 @@
   </xacro:if>
 
   <!-- =============== Gazebo =============== -->
+
+  <xacro:if value="$(arg use_gazebo)">
+    <xacro:gazebo_robot_settings
+      name_hardware="GazeboSystem"
+      name_right_wheel_joint="right_wheel_joint"
+      name_left_wheel_joint="left_wheel_joint"
+      use_gazebo="$(arg use_gazebo)"
+      config_file_package="$(arg gz_control_config_package)" 
+      config_file_path="$(arg gz_control_config_file_path)" />
+
+    <xacro:raspimouse_gazebo_ros2_control_settings
+      name_hardware="GazeboSystem"
+      name_right_wheel_joint="right_wheel_joint"
+      name_left_wheel_joint="left_wheel_joint"
+      use_gazebo="$(arg use_gazebo)"
+      config_file_package="$(arg gz_control_config_package)" 
+      config_file_path="$(arg gz_control_config_file_path)" />
+  </xacro:if>
 
   <xacro:if value="$(arg gazebo_plugin)">
     <gazebo>
