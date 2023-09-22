@@ -80,3 +80,12 @@ def test_lidar_frame():
     rdl.lidar = 'urg'
     rdl.lidar_frame = 'laser'
     assert 'laser' in exec_load(rdl)
+
+
+def test_use_gazebo():
+    # use_gazeboが変更され、xacroにgazebo_ros2_controlがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'true'
+    rdl.gz_control_config_package = 'raspimouse_description'
+    rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
+    assert 'gazebo_ros2_control/GazeboSystem' in exec_load(rdl)
