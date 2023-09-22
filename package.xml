@@ -5,10 +5,12 @@
   <version>1.0.1</version>
   <description>The raspimouse_description package</description>
   <maintainer email="shop@rt-net.jp">RT Corporation</maintainer>
-  <author email="daisuke.sato@rt-net.jp">Daisuke Sato</author>
-  <author email="s.aoki@rt-net.jp">Daisuke Sato</author>
 
   <license>MIT</license>
+  
+  <author email="daisuke.sato@rt-net.jp">Daisuke Sato</author>
+  <author email="s.aoki@rt-net.jp">Shota Aoki</author>
+  <author email="yusuke.kato@rt-net.jp">Yusuke Kato</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -18,6 +20,7 @@
   <depend>rviz2</depend>
   <depend>urdf</depend>
   <depend>xacro</depend>
+  <depend>launch</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
