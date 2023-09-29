@@ -14,10 +14,6 @@
         <xacro:if value="${use_gazebo}">
           <plugin>ign_ros2_control/IgnitionSystem</plugin>
         </xacro:if>
-
-        <xacro:if value="${use_gazebo}">
-          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-        </xacro:if>
       </hardware>
 
       <joint name="${name_right_wheel_joint}">
