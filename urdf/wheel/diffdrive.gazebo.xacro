@@ -4,10 +4,7 @@
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
 
   <xacro:macro name="gazebo_robot_settings"
-    params="name_hardware
-            name_right_wheel_joint
-            name_left_wheel_joint
-            use_gazebo
+    params="use_gazebo
             config_file_package
             config_file_path
             ">
@@ -18,7 +15,6 @@
           <parameters>$(find ${config_file_package})/${config_file_path}</parameters>
         </plugin>
       </xacro:if>
-
     </gazebo>
   </xacro:macro>
 
