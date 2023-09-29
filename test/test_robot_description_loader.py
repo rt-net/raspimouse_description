@@ -88,4 +88,4 @@ def test_use_gazebo():
     rdl.use_gazebo = 'true'
     rdl.gz_control_config_package = 'raspimouse_description'
     rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
-    assert 'gazebo_ros2_control/GazeboSystem' in exec_load(rdl)
+    assert 'ign_ros2_control/IgnitionSystem' in exec_load(rdl)
