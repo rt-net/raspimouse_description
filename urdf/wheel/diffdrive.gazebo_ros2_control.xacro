@@ -4,16 +4,11 @@
   <xacro:macro name="raspimouse_gazebo_ros2_control_settings"
     params="name_hardware
             name_right_wheel_joint
-            name_left_wheel_joint
-            use_gazebo
-            config_file_package
-	    config_file_path ">
+            name_left_wheel_joint ">
 
     <ros2_control name="${name_hardware}" type="system">
       <hardware>
-        <xacro:if value="${use_gazebo}">
-          <plugin>ign_ros2_control/IgnitionSystem</plugin>
-        </xacro:if>
+        <plugin>ign_ros2_control/IgnitionSystem</plugin>
       </hardware>
 
       <joint name="${name_right_wheel_joint}">
