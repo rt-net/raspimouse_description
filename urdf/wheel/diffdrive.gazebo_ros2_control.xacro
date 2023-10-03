@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="raspimouse_gazebo_ros2_control_settings"
+  <xacro:macro name="diffdrive_gazebo_ros2_control_settings"
     params="name_hardware
             name_right_wheel_joint
             name_left_wheel_joint ">
