@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
 
-  <xacro:macro name="gazebo_robot_settings"
+  <xacro:macro name="gazebo_diffdrive_settings"
     params="use_gazebo
             config_file_package
             config_file_path
