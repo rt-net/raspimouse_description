@@ -9,7 +9,7 @@
     <xacro:insert_block name="joint_axis"/>
     <parent link="${parent}"/>
     <child link="${prefix}_wheel"/>
-    <limit effort="70" velocity="15"/>
+    <limit effort="70" velocity="${WHEEL_VELOCITY_LIMIT}"/>
     <safety_controller  k_velocity="10" />
     <dynamics damping="1.0" friction="1.0" />
   </joint>
