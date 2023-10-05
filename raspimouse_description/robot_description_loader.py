@@ -34,11 +34,17 @@ class RobotDescriptionLoader():
             'raspimouse.urdf.xacro')
         self.lidar = 'none'
         self.lidar_frame = 'laser'
+        self.use_gazebo = 'false'
+        self.gz_control_config_package = ''
+        self.gz_control_config_file_path = ''
 
     def load(self):
         return Command([
                 'xacro ',
                 self.robot_description_path,
                 ' lidar:=', self.lidar,
-                ' lidar_frame:=', self.lidar_frame
+                ' lidar_frame:=', self.lidar_frame,
+                ' use_gazebo:=', self.use_gazebo,
+                ' gz_control_config_package:=', self.gz_control_config_package,
+                ' gz_control_config_file_path:=', self.gz_control_config_file_path
                 ])
