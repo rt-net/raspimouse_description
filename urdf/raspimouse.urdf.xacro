@@ -11,7 +11,6 @@
   <xacro:arg name="tf" default="true" />
   <xacro:arg name="jointstate" default="true" />
   <xacro:arg name="robot_namespace" default="/" />
-  <xacro:arg name="topic_namespace" default="" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
   <xacro:arg name="use_gazebo" default="false" />
   <xacro:arg name="gz_control_config_package" default="" />
@@ -104,8 +103,7 @@
     <xacro:gazebo_diffdrive_settings
       use_gazebo="$(arg use_gazebo)"
       config_file_package="$(arg gz_control_config_package)" 
-      config_file_path="$(arg gz_control_config_file_path)"
-      topic_namespace="$(arg topic_namespace)" />
+      config_file_path="$(arg gz_control_config_file_path)" />
 
     <xacro:diffdrive_gazebo_ros2_control_settings
       name_hardware="GazeboSystem"
