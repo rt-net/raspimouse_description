@@ -13,6 +13,7 @@
   <xacro:arg name="robot_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
   <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="use_rgb_camera" default="false" />
   <xacro:arg name="gz_control_config_package" default="" />
   <xacro:arg name="gz_control_config_file_path" default="" />
   
@@ -95,6 +96,18 @@
     <xacro:lidar_rp_sensor sensor_link_name="$(arg lidar_frame)" parent="$(arg lidar)_multi_mount_link">
       <origin xyz="0.0 0.0 0.0445" rpy="0 0 3.14"/> <!-- The LIDAR is about 13cm from the ground-->
     </xacro:lidar_rp_sensor>
+  </xacro:if>
+
+  <!-- RGB Camera -->
+  <xacro:if value="$(arg use_rgb_camera)">
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+    <xacro:sensor_d435
+        parent="base_link"
+        use_nominal_extrinsics="false"
+        add_plug="false"
+        use_mesh="true">
+      <origin xyz="0.08 0.0 0.05" rpy="0 0 0"/>
+    </xacro:sensor_d435>
   </xacro:if>
 
   <!-- =============== Gazebo =============== -->
