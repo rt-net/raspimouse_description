@@ -43,7 +43,7 @@ def generate_launch_description():
     declare_arg_use_rgb_camera = DeclareLaunchArgument(
         'use_rgb_camera',
         default_value='false',
-        description='Set "true" to rgb camera.')
+        description='Set "true" to mount rgb camera.')
 
     description_loader = RobotDescriptionLoader()
     description_loader.lidar = LaunchConfiguration('lidar')
