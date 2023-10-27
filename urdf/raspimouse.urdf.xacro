@@ -29,6 +29,7 @@
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo_ros2_control.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lightsens.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lidar.urdf.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/sensors/rgb_camera.xacro" />
 
   <!-- =============== Link & Joint =============== -->
   <!-- Base -->
@@ -98,24 +99,14 @@
     </xacro:lidar_rp_sensor>
   </xacro:if>
 
-  <!-- RGB Camera -->
-  <xacro:if value="$(arg use_rgb_camera)">
-    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
-    <xacro:sensor_d435
-        parent="base_link"
-        use_nominal_extrinsics="false"
-        add_plug="false"
-        use_mesh="true">
-      <origin xyz="0.08 0.0 0.055" rpy="0 0 0"/>
-    </xacro:sensor_d435>
-  </xacro:if>
-
   <!-- =============== Gazebo =============== -->
+  <xacro:rgb_camera_settings
+    use_gazebo="$(arg use_gazebo)"
+    use_rgb_camera="$(arg use_rgb_camera)" />
 
   <xacro:if value="$(arg use_gazebo)">
     <xacro:gazebo_diffdrive_settings
       use_gazebo="$(arg use_gazebo)"
-      use_rgb_camera="$(arg use_rgb_camera)"
       config_file_package="$(arg gz_control_config_package)" 
       config_file_path="$(arg gz_control_config_file_path)" />
 
