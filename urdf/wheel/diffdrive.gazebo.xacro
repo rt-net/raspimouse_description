@@ -20,6 +20,7 @@
         </plugin>
       </xacro:if>
     </gazebo>
+
   </xacro:macro>
 
 </robot>

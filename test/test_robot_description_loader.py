@@ -98,3 +98,13 @@ def test_use_rgb_camera():
     rdl.gz_control_config_package = 'raspimouse_description'
     rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
     assert 'realsense2_description/meshes/d435.dae' in exec_load(rdl)
+
+
+def test_camera_link():
+    # use_gazeboとuse_rgb_cameraが変更され、xacroにcamera linkがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'true'
+    rdl.use_rgb_camera = 'true'
+    rdl.gz_control_config_package = 'raspimouse_description'
+    rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
+    assert 'camera_link' in exec_load(rdl)
