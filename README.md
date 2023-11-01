@@ -46,6 +46,12 @@ ros2 launch raspimouse_description display.launch.py lidar:=rplidar
 
 The `lidar` option supports `urg`, `lds`, and `rplidar`.
 
+Similarly, display a RGB Camera mounted robot model with the following command:
+
+```sh
+ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true
+```
+
 ## LICENSE
 
 (C) 2016-2022 RT Corporation
