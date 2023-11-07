@@ -9,6 +9,7 @@
   <!-- PROPERTY LIST -->
   <!-- All units in m-kg-s-radians unit system -->
   <xacro:property name="M_PI" value="3.1415926535897932" />
+  <xacro:property name="WHEEL_VELOCITY_LIMIT" value="90" />
 
   <!-- Inertial macros. Units are kg*m^2 -->
   <xacro:macro name="box_inertia" params="m x y z">

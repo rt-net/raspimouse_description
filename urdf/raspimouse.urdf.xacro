@@ -11,8 +11,11 @@
   <xacro:arg name="tf" default="true" />
   <xacro:arg name="jointstate" default="true" />
   <xacro:arg name="robot_namespace" default="/" />
-  <xacro:arg name="diffdrive_namespace" default="/" />
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
+  <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="use_rgb_camera" default="false" />
+  <xacro:arg name="gz_control_config_package" default="" />
+  <xacro:arg name="gz_control_config_file_path" default="" />
   
   <material name="black">
     <color rgba="0.2 0.2 0.2 1.0"/>
@@ -23,8 +26,10 @@
   <xacro:include filename="$(find raspimouse_description)/urdf/body/option.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/wheel.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/wheel/diffdrive.gazebo_ros2_control.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lightsens.urdf.xacro" />
   <xacro:include filename="$(find raspimouse_description)/urdf/sensors/lidar.urdf.xacro" />
+  <xacro:include filename="$(find raspimouse_description)/urdf/sensors/rgb_camera.xacro" />
 
   <!-- =============== Link & Joint =============== -->
   <!-- Base -->
@@ -95,6 +100,21 @@
   </xacro:if>
 
   <!-- =============== Gazebo =============== -->
+  <xacro:rgb_camera_settings
+    use_gazebo="$(arg use_gazebo)"
+    use_rgb_camera="$(arg use_rgb_camera)" />
+
+  <xacro:if value="$(arg use_gazebo)">
+    <xacro:gazebo_diffdrive_settings
+      use_gazebo="$(arg use_gazebo)"
+      config_file_package="$(arg gz_control_config_package)" 
+      config_file_path="$(arg gz_control_config_file_path)" />
+
+    <xacro:diffdrive_gazebo_ros2_control_settings
+      name_hardware="GazeboSystem"
+      name_right_wheel_joint="right_wheel_joint"
+      name_left_wheel_joint="left_wheel_joint" />
+  </xacro:if>
 
   <xacro:if value="$(arg gazebo_plugin)">
     <gazebo>
@@ -133,9 +153,6 @@
       <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="6.28" min_range="0.15" max_range="12" />
     </xacro:if>
 
-    <!-- DiffDriveController -->
-    <xacro:diffdrive_gazebo publish_tf="$(arg tf)" publish_jointstate="$(arg jointstate)"
-      robot_namespace="$(arg diffdrive_namespace)" />
   </xacro:if>
 
   <raspimouse_on_gazebo/>

@@ -12,15 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 
 from ament_index_python.packages import get_package_share_directory
+from raspimouse_description.robot_description_loader import RobotDescriptionLoader
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from launch_ros.actions import PushRosNamespace
-from launch.substitutions import Command
 from launch.substitutions import LaunchConfiguration
 
 
@@ -41,23 +40,22 @@ def generate_launch_description():
         'use_rviz',
         default_value='true',
         description='Set "true" to launch rviz.')
+    declare_arg_use_rgb_camera = DeclareLaunchArgument(
+        'use_rgb_camera',
+        default_value='false',
+        description='Set "true" to mount rgb camera.')
 
-    xacro_file = os.path.join(
-        get_package_share_directory('raspimouse_description'),
-        'urdf',
-        'raspimouse.urdf.xacro')
-    params = {'robot_description': Command(['xacro ', xacro_file,
-                                            ' lidar:=', LaunchConfiguration('lidar'),
-                                            ' lidar_frame:=', LaunchConfiguration('lidar_frame'),
-                                            ]),
-              'frame_prefix': [LaunchConfiguration('namespace'), '/']}
+    description_loader = RobotDescriptionLoader()
+    description_loader.lidar = LaunchConfiguration('lidar')
+    description_loader.lidar_frame = LaunchConfiguration('lidar_frame')
+    description_loader.use_rgb_camera = LaunchConfiguration('use_rgb_camera')
 
     push_ns = PushRosNamespace([LaunchConfiguration('namespace')])
 
     rsp = Node(package='robot_state_publisher',
                executable='robot_state_publisher',
                output='both',
-               parameters=[params])
+               parameters=[{'robot_description': description_loader.load()}])
 
     jsp = Node(
         package='joint_state_publisher_gui',
@@ -79,6 +77,7 @@ def generate_launch_description():
         declare_arg_lidar_frame,
         declare_arg_namespace,
         declare_arg_use_rviz,
+        declare_arg_use_rgb_camera,
         push_ns,
         rsp,
         jsp,
