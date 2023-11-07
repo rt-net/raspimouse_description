@@ -2,8 +2,8 @@
 Changelog for package raspimouse_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.0 (2023-11-07)
+------------------
 * READMEにRGBカメラを表示するコマンドを追記 (`#47 <https://github.com/rt-net/raspimouse_description/issues/47>`_)
 * Gazebo上で画像トピックを配信できるように変更 (`#46 <https://github.com/rt-net/raspimouse_description/issues/46>`_)
 * RGBカメラのモデルを表示できるように変更 (`#45 <https://github.com/rt-net/raspimouse_description/issues/45>`_)
