@@ -95,7 +95,6 @@ def test_use_rgb_camera():
     # use_rgb_cameraが変更され、xacroにRGB Cameraがセットされることを期待
     rdl = RobotDescriptionLoader()
     rdl.use_rgb_camera = 'true'
-    rdl.camera_downward = 'false'
     rdl.gz_control_config_package = 'raspimouse_description'
     rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
     assert 'realsense2_description/meshes/d435.dae' in exec_load(rdl)
