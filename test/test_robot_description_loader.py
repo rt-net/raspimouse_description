@@ -105,7 +105,6 @@ def test_camera_link():
     rdl = RobotDescriptionLoader()
     rdl.use_gazebo = 'true'
     rdl.use_rgb_camera = 'true'
-    rdl.camera_downward = 'false'
     rdl.gz_control_config_package = 'raspimouse_description'
     rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
     assert 'camera_link' in exec_load(rdl)
