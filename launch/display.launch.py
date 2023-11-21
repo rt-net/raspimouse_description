@@ -47,7 +47,7 @@ def generate_launch_description():
     declare_arg_camera_downward = DeclareLaunchArgument(
         'camera_downward',
         default_value='false',
-        description='Set "true" to camera down.')
+        description='Set "true" to point the camera downwards.')
 
     description_loader = RobotDescriptionLoader()
     description_loader.lidar = LaunchConfiguration('lidar')
