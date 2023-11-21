@@ -22,6 +22,7 @@
 from raspimouse_description.robot_description_loader import RobotDescriptionLoader
 from launch.launch_context import LaunchContext
 import pytest
+import math
 
 
 def exec_load(loader):
@@ -118,5 +119,5 @@ def test_camera_downward():
     rdl.camera_downward = 'true'
     rdl.gz_control_config_package = 'raspimouse_description'
     rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
-    print(exec_load(rdl))
-    assert '<pose>0 0 0 0 0.523 0</pose>' in exec_load(rdl)
+    camera_angle = math.radians(30)
+    assert '<pose>0 0 0 0 ' + str(camera_angle) + ' 0</pose>' in exec_load(rdl)

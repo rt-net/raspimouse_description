@@ -3,6 +3,8 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
 
+  <xacro:property name="CAMERA_ANGLE" value="${radians(30)}"/>
+
   <xacro:macro name="rgb_camera_settings"
     params="use_gazebo
             use_rgb_camera
@@ -17,7 +19,7 @@
         use_nominal_extrinsics="false"
         add_plug="false"
         use_mesh="true">
-          <origin xyz="0.08 0.0 0.055" rpy="0 0.523 0"/>
+          <origin xyz="0.08 0.0 0.055" rpy="0 ${CAMERA_ANGLE} 0"/>
       </xacro:sensor_d435>
     </xacro:if>
 
@@ -39,53 +41,32 @@
       </plugin>
     </gazebo>
 
-    <xacro:if value="${camera_downward}">
-      <gazebo reference="camera_link">
-        <sensor name="camera_link" type="camera">
-          <update_rate>30.0</update_rate>
-          <always_on>true</always_on>
-          <ignition_frame_id>camera_link</ignition_frame_id>
-          <pose>0 0 0 0 ${radians(30)} 0</pose>
-          <topic>/camera/color/image_raw</topic>
-          <camera name="rgb_camera">
-            <horizontal_fov>1.20428</horizontal_fov>
-            <image>
-              <width>1920</width>
-              <height>1080</height>
-              <format>R8G8B8</format>
-            </image>
-            <clip>
-              <near>0.02</near>
-              <far>300</far>
-            </clip>
-          </camera>
-        </sensor>
-      </gazebo>
-    </xacro:if>
-
-    <xacro:unless value="${camera_downward}">
-      <gazebo reference="camera_link">
-        <sensor name="camera_link" type="camera">
-          <update_rate>30.0</update_rate>
-          <always_on>true</always_on>
-          <ignition_frame_id>camera_link</ignition_frame_id>
+    <gazebo reference="camera_link">
+      <sensor name="camera_link" type="camera">
+        <update_rate>30.0</update_rate>
+        <always_on>true</always_on>
+        <ignition_frame_id>camera_link</ignition_frame_id>
+        <xacro:if value="${camera_downward}">
+          <pose>0 0 0 0 ${CAMERA_ANGLE} 0</pose>
+        </xacro:if>
+        <xacro:unless value="${camera_downward}">
           <pose>0 0 0 0 0 0</pose>
-          <topic>/camera/color/image_raw</topic>
-          <camera name="rgb_camera">
-            <horizontal_fov>1.20428</horizontal_fov>
-            <image>
-              <width>1920</width>
-              <height>1080</height>
-              <format>R8G8B8</format>
-            </image>
-            <clip>
-              <near>0.02</near>
-              <far>300</far>
-            </clip>
-          </camera>
-        </sensor>
-      </gazebo>
-    </xacro:unless>
+        </xacro:unless>
+        <topic>/camera/color/image_raw</topic>
+        <camera name="rgb_camera">
+          <horizontal_fov>1.20428</horizontal_fov>
+          <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+        </camera>
+      </sensor>
+    </gazebo>
   </xacro:if>
 </xacro:macro>
 
