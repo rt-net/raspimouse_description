@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
 
-  <xacro:property name="CAMERA_ANGLE" value="${radians(30)}"/>
+  <xacro:property name="DOWNWARD_CAMERA_ANGLE" value="${radians(30)}"/>
 
   <xacro:macro name="rgb_camera_settings"
     params="use_gazebo
@@ -19,7 +19,7 @@
         use_nominal_extrinsics="false"
         add_plug="false"
         use_mesh="true">
-          <origin xyz="0.08 0.0 0.055" rpy="0 ${CAMERA_ANGLE} 0"/>
+          <origin xyz="0.08 0.0 0.055" rpy="0 ${DOWNWARD_CAMERA_ANGLE} 0"/>
       </xacro:sensor_d435>
     </xacro:if>
 
@@ -47,7 +47,7 @@
         <always_on>true</always_on>
         <ignition_frame_id>camera_link</ignition_frame_id>
         <xacro:if value="${camera_downward}">
-          <pose>0 0 0 0 ${CAMERA_ANGLE} 0</pose>
+          <pose>0 0 0 0 ${DOWNWARD_CAMERA_ANGLE} 0</pose>
         </xacro:if>
         <xacro:unless value="${camera_downward}">
           <pose>0 0 0 0 0 0</pose>
