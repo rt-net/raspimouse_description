@@ -29,7 +29,6 @@
         </ray>
 	<plugin name="gazebo_ros_${sensor_link_name}_controller" filename="libgazebo_ros_ray_sensor.so">
           <ros>
-              <namespace>/test</namespace>
               <remapping>~/out:=scan</remapping>
           </ros>
           <output_type>sensor_msgs/LaserScan</output_type>
