@@ -3,8 +3,12 @@
 
   <xacro:macro name="lidar_gazebo" params="sensor_link_name base_rad rad_range min_range max_range">
     <gazebo reference="${sensor_link_name}">
-      <sensor type="ray" name="${sensor_link_name}_sensor">
-        <pose>0 0 0 0 0 0</pose>
+      <sensor type="gpu_lidar" name="${sensor_link_name}_sensor">
+        <pose relative_to='${sensor_link_name}'>0 0 0 0 0 0</pose>
+        <ignition_frame_id>${sensor_link_name}</ignition_frame_id>
+        <frame_id>${sensor_link_name}</frame_id>
+        <topic>scan</topic>
+        <always_on>1</always_on>
         <visualize>$(arg laser_visual)</visualize>
         <update_rate>10</update_rate>
         <ray>
@@ -27,10 +31,6 @@
             <stddev>0.03</stddev>
           </noise>
         </ray>
-        <plugin name="gazebo_ros_${sensor_link_name}_controller" filename="libgazebo_ros_laser.so">
-          <topicName>scan</topicName>
-          <frameName>${sensor_link_name}</frameName>
-        </plugin>
       </sensor>
     </gazebo>
   </xacro:macro>
