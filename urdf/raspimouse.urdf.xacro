@@ -101,12 +101,10 @@
   </xacro:if>
 
   <!-- =============== Gazebo =============== -->
-  <xacro:if value="$(arg use_rgb_camera)">
-    <xacro:rgb_camera_settings
-      use_gazebo="$(arg use_gazebo)"
-      use_rgb_camera="$(arg use_rgb_camera)"
-      camera_downward="$(arg camera_downward)" />
-  </xacro:if>
+  <xacro:rgb_camera_settings
+    use_gazebo="$(arg use_gazebo)"
+    use_rgb_camera="$(arg use_rgb_camera)"
+    camera_downward="$(arg camera_downward)" />
 
   <xacro:if value="$(arg use_gazebo)">
     <xacro:gazebo_diffdrive_settings
