@@ -2,8 +2,8 @@
 Changelog for package raspimouse_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.2.0 (2024-03-05)
+------------------
 * シミュレータ環境でscanトピックをpublish (`#52 <https://github.com/rt-net/raspimouse_description/issues/52>`_)
 * camera_downwardがtrueのときRGBカメラが斜め下を向くように変更 (`#50 <https://github.com/rt-net/raspimouse_description/issues/50>`_)
   Co-authored-by: Shota Aoki <s.aoki@rt-net.jp>
