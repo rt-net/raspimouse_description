@@ -61,6 +61,7 @@ ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true camera
 
 ![](https://rt-net.github.io/images/raspberry-pi-mouse/mouse_with_rgb_camera_downward.png)
 
+
 ## LICENSE
 
 (C) 2016-2022 RT Corporation
