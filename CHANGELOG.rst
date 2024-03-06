@@ -2,6 +2,22 @@
 Changelog for package raspimouse_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.0 (2024-03-05)
+------------------
+* シミュレータ環境でscanトピックをpublish (`#52 <https://github.com/rt-net/raspimouse_description/issues/52>`_)
+* camera_downwardがtrueのときRGBカメラが斜め下を向くように変更 (`#50 <https://github.com/rt-net/raspimouse_description/issues/50>`_)
+  Co-authored-by: Shota Aoki <s.aoki@rt-net.jp>
+* READMEにRGBカメラを表示するコマンドを追記 (`#47 <https://github.com/rt-net/raspimouse_description/issues/47>`_)
+* Gazebo上で画像トピックを配信できるように変更 (`#46 <https://github.com/rt-net/raspimouse_description/issues/46>`_)
+* RGBカメラのモデルを表示できるように変更 (`#45 <https://github.com/rt-net/raspimouse_description/issues/45>`_)
+  Co-authored-by: Shota Aoki <s.aoki@rt-net.jp>
+* cmd_velとodomのトピック名をremapping (`#44 <https://github.com/rt-net/raspimouse_description/issues/44>`_)
+* controller managerが起動するように変更 (`#43 <https://github.com/rt-net/raspimouse_description/issues/43>`_)
+  Co-authored-by: Shota Aoki <s.aoki@rt-net.jp>
+* robot_description_loaderを実装 (`#42 <https://github.com/rt-net/raspimouse_description/issues/42>`_)
+  Co-authored-by: Daisuke Sato <daisuke.sato@rt-net.jp>
+* Contributors: YusukeKato
+
 1.1.0 (2023-11-07)
 ------------------
 * READMEにRGBカメラを表示するコマンドを追記 (`#47 <https://github.com/rt-net/raspimouse_description/issues/47>`_)

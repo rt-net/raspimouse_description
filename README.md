@@ -51,6 +51,16 @@ Similarly, display a RGB Camera mounted robot model with the following command:
 ```sh
 ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true
 ```
+![](https://rt-net.github.io/images/raspberry-pi-mouse/mouse_with_rgb_camera.png)
+
+RGB Camera can be pointed down with the following command:
+
+```sh
+ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true camera_downward:=true
+```
+
+![](https://rt-net.github.io/images/raspberry-pi-mouse/mouse_with_rgb_camera_downward.png)
+
 
 ## LICENSE
 

@@ -44,11 +44,16 @@ def generate_launch_description():
         'use_rgb_camera',
         default_value='false',
         description='Set "true" to mount rgb camera.')
+    declare_arg_camera_downward = DeclareLaunchArgument(
+        'camera_downward',
+        default_value='false',
+        description='Set "true" to point the camera downwards.')
 
     description_loader = RobotDescriptionLoader()
     description_loader.lidar = LaunchConfiguration('lidar')
     description_loader.lidar_frame = LaunchConfiguration('lidar_frame')
     description_loader.use_rgb_camera = LaunchConfiguration('use_rgb_camera')
+    description_loader.camera_downward = LaunchConfiguration('camera_downward')
 
     push_ns = PushRosNamespace([LaunchConfiguration('namespace')])
 
@@ -78,6 +83,7 @@ def generate_launch_description():
         declare_arg_namespace,
         declare_arg_use_rviz,
         declare_arg_use_rgb_camera,
+        declare_arg_camera_downward,
         push_ns,
         rsp,
         jsp,

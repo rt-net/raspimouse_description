@@ -14,6 +14,7 @@
   <xacro:arg name="sensor_namespace" default="raspimouse_on_gazebo" />
   <xacro:arg name="use_gazebo" default="false" />
   <xacro:arg name="use_rgb_camera" default="false" />
+  <xacro:arg name="camera_downward" default="false" />
   <xacro:arg name="gz_control_config_package" default="" />
   <xacro:arg name="gz_control_config_file_path" default="" />
   
@@ -102,7 +103,8 @@
   <!-- =============== Gazebo =============== -->
   <xacro:rgb_camera_settings
     use_gazebo="$(arg use_gazebo)"
-    use_rgb_camera="$(arg use_rgb_camera)" />
+    use_rgb_camera="$(arg use_rgb_camera)"
+    camera_downward="$(arg camera_downward)" />
 
   <xacro:if value="$(arg use_gazebo)">
     <xacro:gazebo_diffdrive_settings
@@ -140,6 +142,10 @@
       rad_range="0.3" min_range="0.01" max_range="0.6"
       robot_namespace="$(arg sensor_namespace)"
       robotdescription_namespace="$(arg robot_namespace)" />
+
+  </xacro:if>
+
+  <xacro:if value="$(arg use_gazebo)">
 
     <xacro:if value="${'$(arg lidar)' == 'urg'}">
       <xacro:lidar_gazebo sensor_link_name="$(arg lidar_frame)" base_rad="0" rad_range="4.71" min_range="0.10" max_range="5.6" />

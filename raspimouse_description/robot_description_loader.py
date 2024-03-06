@@ -36,6 +36,7 @@ class RobotDescriptionLoader():
         self.lidar_frame = 'laser'
         self.use_gazebo = 'false'
         self.use_rgb_camera = 'false'
+        self.camera_downward = 'false'
         self.gz_control_config_package = ''
         self.gz_control_config_file_path = ''
 
@@ -47,6 +48,7 @@ class RobotDescriptionLoader():
                 ' lidar_frame:=', self.lidar_frame,
                 ' use_gazebo:=', self.use_gazebo,
                 ' use_rgb_camera:=', self.use_rgb_camera,
+                ' camera_downward:=', self.camera_downward,
                 ' gz_control_config_package:=', self.gz_control_config_package,
                 ' gz_control_config_file_path:=', self.gz_control_config_file_path
                 ])

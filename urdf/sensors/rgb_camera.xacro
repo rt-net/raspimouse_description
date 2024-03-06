@@ -3,51 +3,71 @@
 
   <xacro:include filename="$(find raspimouse_description)/urdf/common.xacro" />
 
+  <xacro:property name="DOWNWARD_CAMERA_ANGLE" value="${radians(30)}"/>
+
   <xacro:macro name="rgb_camera_settings"
     params="use_gazebo
             use_rgb_camera
+            camera_downward
             ">
 
-  <xacro:if value="$(arg use_rgb_camera)">
-    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
-    <xacro:sensor_d435
-        parent="base_link"
-        use_nominal_extrinsics="false"
-        add_plug="false"
-        use_mesh="true">
-      <origin xyz="0.08 0.0 0.055" rpy="0 0 0"/>
-    </xacro:sensor_d435>
-  </xacro:if>
-
-  <xacro:if value="${use_gazebo}">
-    <gazebo>
-      <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
-        <render_engine>ogre2</render_engine>
-      </plugin>
-    </gazebo>
-
-    <gazebo reference="camera_link">
-      <sensor name="camera_link" type="camera">
-        <update_rate>30.0</update_rate>
-        <always_on>true</always_on>
-        <ignition_frame_id>camera_link</ignition_frame_id>
-        <pose>0 0 0 0 0 0</pose>
-        <topic>/camera/color/image_raw</topic>
-        <camera name="rgb_camera">
-          <horizontal_fov>1.20428</horizontal_fov>
-          <image>
-            <width>1920</width>
-            <height>1080</height>
-            <format>R8G8B8</format>
-          </image>
-          <clip>
-            <near>0.02</near>
-            <far>300</far>
-          </clip>
-        </camera>
-      </sensor>
-    </gazebo>
-  </xacro:if>
-</xacro:macro>
+    <xacro:if value="$(arg use_rgb_camera)">
+      <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+      <xacro:if value="$(arg camera_downward)">
+        <xacro:sensor_d435
+          parent="base_link"
+          use_nominal_extrinsics="false"
+          add_plug="false"
+          use_mesh="true">
+            <origin xyz="0.08 0.0 0.055" rpy="0 ${DOWNWARD_CAMERA_ANGLE} 0"/>
+        </xacro:sensor_d435>
+      </xacro:if>
+  
+      <xacro:unless value="$(arg camera_downward)">
+        <xacro:sensor_d435
+          parent="base_link"
+          use_nominal_extrinsics="false"
+          add_plug="false"
+          use_mesh="true">
+            <origin xyz="0.08 0.0 0.055" rpy="0 0 0"/>
+        </xacro:sensor_d435>
+      </xacro:unless>
+  
+      <xacro:if value="${use_gazebo}">
+        <gazebo>
+          <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+          </plugin>
+        </gazebo>
+    
+        <gazebo reference="camera_link">
+          <sensor name="camera_link" type="camera">
+            <update_rate>30.0</update_rate>
+            <always_on>true</always_on>
+            <ignition_frame_id>camera_link</ignition_frame_id>
+            <xacro:if value="${camera_downward}">
+              <pose>0 0 0 0 ${DOWNWARD_CAMERA_ANGLE} 0</pose>
+            </xacro:if>
+            <xacro:unless value="${camera_downward}">
+              <pose>0 0 0 0 0 0</pose>
+            </xacro:unless>
+            <topic>/camera/color/image_raw</topic>
+            <camera name="rgb_camera">
+              <horizontal_fov>1.20428</horizontal_fov>
+              <image>
+                <width>1920</width>
+                <height>1080</height>
+                <format>R8G8B8</format>
+              </image>
+              <clip>
+                <near>0.02</near>
+                <far>300</far>
+              </clip>
+            </camera>
+          </sensor>
+        </gazebo>
+      </xacro:if>
+    </xacro:if>
+  </xacro:macro>
 
 </robot>
