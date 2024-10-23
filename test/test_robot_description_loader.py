@@ -19,10 +19,12 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from raspimouse_description.robot_description_loader import RobotDescriptionLoader
-from launch.launch_context import LaunchContext
-import pytest
 import math
+
+import pytest
+from launch.launch_context import LaunchContext
+from raspimouse_description.robot_description_loader import \
+    RobotDescriptionLoader
 
 
 def exec_load(loader):
