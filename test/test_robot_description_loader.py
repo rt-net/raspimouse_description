@@ -21,8 +21,9 @@
 
 import math
 
-import pytest
 from launch.launch_context import LaunchContext
+import pytest
+
 from raspimouse_description.robot_description_loader import \
     RobotDescriptionLoader
 
