@@ -1,5 +1,7 @@
 # raspimouse_description
 
+[![industrial_ci](https://github.com/rt-net/raspimouse_description/actions/workflows/industrial_ci.yml/badge.svg?branch=ros2)](https://github.com/rt-net/raspimouse_description/actions/workflows/industrial_ci.yml)
+
 ROS package with URDF description macro for [Raspberry Pi Mouse](https://rt-net.jp/products/raspberrypimousev3/)
 
 ![display_launch](https://rt-net.github.io/images/raspberry-pi-mouse/display_launch.png)
