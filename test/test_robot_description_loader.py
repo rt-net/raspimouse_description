@@ -19,10 +19,13 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from raspimouse_description.robot_description_loader import RobotDescriptionLoader
+import math
+
 from launch.launch_context import LaunchContext
 import pytest
-import math
+
+from raspimouse_description.robot_description_loader import \
+    RobotDescriptionLoader
 
 
 def exec_load(loader):
@@ -89,7 +92,7 @@ def test_use_gazebo():
     rdl.use_gazebo = 'true'
     rdl.gz_control_config_package = 'raspimouse_description'
     rdl.gz_control_config_file_path = 'test/dummy_controllers.yaml'
-    assert 'ign_ros2_control/IgnitionSystem' in exec_load(rdl)
+    assert 'gz_ros2_control/GazeboSimSystem' in exec_load(rdl)
 
 
 def test_use_rgb_camera():

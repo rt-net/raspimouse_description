@@ -10,7 +10,7 @@
 
     <ros2_control name="${name_hardware}" type="system">
       <hardware>
-        <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
       </hardware>
 
       <joint name="${name_right_wheel_joint}">

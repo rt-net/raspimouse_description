@@ -5,7 +5,7 @@
     <gazebo reference="${sensor_link_name}">
       <sensor type="gpu_lidar" name="${sensor_link_name}_sensor">
         <pose relative_to='${sensor_link_name}'>0 0 0 0 0 0</pose>
-        <ignition_frame_id>${sensor_link_name}</ignition_frame_id>
+        <gz_frame_id>${sensor_link_name}</gz_frame_id>
         <frame_id>${sensor_link_name}</frame_id>
         <topic>scan</topic>
         <always_on>1</always_on>

@@ -7,10 +7,11 @@
   <maintainer email="shop@rt-net.jp">RT Corporation</maintainer>
 
   <license>MIT</license>
-  
+
   <author email="daisuke.sato@rt-net.jp">Daisuke Sato</author>
   <author email="s.aoki@rt-net.jp">Shota Aoki</author>
   <author email="yusuke.kato@rt-net.jp">Yusuke Kato</author>
+  <author email="kurasawa@rt-net.jp">Kazushi Kurasawa</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -21,7 +22,7 @@
   <depend>urdf</depend>
   <depend>xacro</depend>
   <depend>launch</depend>
-  <depend>ign_ros2_control</depend>
+  <depend>gz_ros2_control</depend>
   <depend>realsense2_description</depend>
 
   <test_depend>ament_lint_auto</test_depend>

@@ -32,19 +32,19 @@
             <origin xyz="0.08 0.0 0.055" rpy="0 0 0"/>
         </xacro:sensor_d435>
       </xacro:unless>
-  
+
       <xacro:if value="${use_gazebo}">
         <gazebo>
-          <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+          <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
             <render_engine>ogre2</render_engine>
           </plugin>
         </gazebo>
-    
+
         <gazebo reference="camera_link">
           <sensor name="camera_link" type="camera">
             <update_rate>30.0</update_rate>
             <always_on>true</always_on>
-            <ignition_frame_id>camera_link</ignition_frame_id>
+            <gz_frame_id>camera_link</gz_frame_id>
             <xacro:if value="${camera_downward}">
               <pose>0 0 0 0 ${DOWNWARD_CAMERA_ANGLE} 0</pose>
             </xacro:if>

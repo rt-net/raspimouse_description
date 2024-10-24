@@ -16,8 +16,8 @@
         <geometry>
           <box size="0.01 0.005 0.007" />
         </geometry>
-        <material name="Gray">
-          <color rgba="0.2 0.2 0.2 1" />
+        <material name="Red">
+          <color rgba="1.0 0.0 0.0 1" />
         </material>
       </visual>
       <inertial>

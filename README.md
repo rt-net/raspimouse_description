@@ -1,27 +1,28 @@
 # raspimouse_description
 
+[![industrial_ci](https://github.com/rt-net/raspimouse_description/actions/workflows/industrial_ci.yml/badge.svg?branch=ros2)](https://github.com/rt-net/raspimouse_description/actions/workflows/industrial_ci.yml)
+
 ROS package with URDF description macro for [Raspberry Pi Mouse](https://rt-net.jp/products/raspberrypimousev3/)
 
 ![display_launch](https://rt-net.github.io/images/raspberry-pi-mouse/display_launch.png)
 
-This ROS package was separated from [rt-net/raspimouse_sim](https://github.com/rt-net/raspimouse_sim).  
+This ROS package was separated from [rt-net/raspimouse_sim](https://github.com/rt-net/raspimouse_sim).
 See details from [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse_sim/pull/42).
 
-The main development branch for ROS 1 is [`master`](https://github.com/rt-net/raspimouse_description/tree/master).  
+The main development branch for ROS 1 is [`master`](https://github.com/rt-net/raspimouse_description/tree/master).
 The main development branch for ROS 2 is [`ros2`](https://github.com/rt-net/raspimouse_description/tree/ros2).
 
 ## Supported ROS distributions
 
-- Melodic ([`melodic-devel`](https://github.com/rt-net/raspimouse_description/tree/melodic-devel))
-- Foxy ([`foxy-devel`](https://github.com/rt-net/raspimouse_description/tree/foxy-devel))
-- Humble ([`humble-devel`](https://github.com/rt-net/raspimouse_description/tree/humble-devel))
+- Humble ([`humble`](https://github.com/rt-net/raspimouse_description/tree/humble))
+- Jazzy ([`jazzy`](https://github.com/rt-net/raspimouse_description/tree/jazzy))
 
 ## Installation
 
 ```sh
 # Clone raspimouse_description and install dependencies
 cd ~/ros2_ws/src
-git clone -b $ROS_DISTRO-devel https://github.com/rt-net/raspimouse_description
+git clone -b $ROS_DISTRO https://github.com/rt-net/raspimouse_description
 rosdep install -r -y -i --from-paths .
 
 # Build the package
@@ -66,7 +67,7 @@ ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true camera
 
 (C) 2016-2022 RT Corporation
 
-This repository is licensed under the MIT license, see [LICENSE](./LICENSE).  
+This repository is licensed under the MIT license, see [LICENSE](./LICENSE).
 Unless attributed otherwise, everything in this repository is under the MIT license.
 
 ### Acknowledgements
