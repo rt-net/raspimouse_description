@@ -22,7 +22,7 @@ In accordance with our updated naming policies, `ROS 2 Humble` is managed across
 ```sh
 # Clone raspimouse_description and install dependencies
 cd ~/ros2_ws/src
-git clone -b $ROS_DISTRO-devel https://github.com/rt-net/raspimouse_description
+git clone -b $ROS_DISTRO https://github.com/rt-net/raspimouse_description
 rosdep install -r -y -i --from-paths .
 
 # Build the package
