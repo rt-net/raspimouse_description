@@ -6,8 +6,9 @@ Changelog for package raspimouse_description
 ------------------
 * Support ROS 2 Jazzy (`#55 <https://github.com/rt-net/raspimouse_description/issues/55>`_)
 * Replace `ign` to `gz`
-* Updated the remapping for subscription to reflect the removal of `unstamped` from [ros2_controllers](https://github.com/ros-controls/ros2_controllers/blob/57c50e584e33b316dd64801916cf6d951e0cff5b/tricycle_controller/CHANGELOG.rst#4100-2024-07-01)
-* Contributors: Kazushi Kurasawa, YusukeKato
+* Updated the remapping for subscription to reflect the removal of `unstamped` from `ros2_controllers <https://github.com/ros-controls/ros2_controllers/blob/57c50e584e33b316dd64801916cf6d951e0cff5b/tricycle_controller/CHANGELOG.rst#4100-2024-07-01>`_
+  Co-authored-by: Kazushi Kurasawa <Kurasawa@rt-net.jp>
+* Contributors: YusukeKato
 
 1.2.0 (2024-03-05)
 ------------------
