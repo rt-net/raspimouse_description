@@ -104,10 +104,11 @@ ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true camera
 
 ## License
 
-(C) 2016-2022 RT Corporation \<support@rt-net.jp\>
+(C) 2016-2022 RT Corporation <support@rt-net.jp>
 
-各ファイルはライセンスがファイル中に明記されている場合、そのライセンスに従います。 特に明記されていない場合は、Apache License, Version 2.0に基づき公開されています。
-ライセンスの全文は[LICENSE](./LICENSE)または[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)から確認できます。
+Each file is licensed as stated in their headers.  
+If no license is specified, the file is licensed under the Apache License, Version 2.0.  
+The full license text is available in the [LICENSE](./LICENSE) file or at [https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ### Acknowledgements
 
@@ -118,9 +119,7 @@ The original file is released in [turtlebot3_description package](https://github
 
 ## Contributing
 
-- 本ソフトウェアはオープンソースですが、開発はオープンではありません。
-- 本ソフトウェアは基本的にオープンソースソフトウェアとして「AS IS」（現状有姿のまま）で提供しています。
-- 本ソフトウェアに関する無償サポートはありません。
-- バグの修正や誤字脱字の修正に関するリクエストは常に受け付けていますが、
-それ以外の機能追加等のリクエストについては社内のガイドラインを優先します。
-詳しくは[コントリビューションガイドライン](https://github.com/rt-net/.github/blob/master/CONTRIBUTING.md)に従ってください。
+- This software is open source, but its development is not open.
+- This software is essentially provided as open source software on an “AS IS” (in its current state) basis.
+- No free support is available for this software.
+- Requests for bug fixes and corrections of typographical errors are always accepted; however, requests for additional features will be subject to our internal guidelines. For further details, please refer to the [Contribution Guidelines](https://github.com/rt-net/.github/blob/master/CONTRIBUTING.md).
