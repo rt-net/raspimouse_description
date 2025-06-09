@@ -24,7 +24,6 @@ The main development branch for ROS 2 is [`ros2`](https://github.com/rt-net/rasp
     - [Source Build](#source-build)
   - [QuickStart](#quickstart)
   - [License](#license)
-    - [Acknowledgements](#acknowledgements)
   - [Contributing](#contributing)
 
 ## Supported ROS distributions
