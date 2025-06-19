@@ -103,7 +103,7 @@ ros2 launch raspimouse_description display.launch.py use_rgb_camera:=true camera
 
 ## License
 
-(C) 2016-2022 RT Corporation <support@rt-net.jp>
+(C) 2016-2022 RT Corporation \<support@rt-net.jp\>
 
 Each file is licensed as stated in their headers.  
 If no license is specified, the file is licensed under the Apache License, Version 2.0.  
