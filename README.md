@@ -55,7 +55,7 @@ sudo apt install ros-$ROS_DISTRO-raspimouse-description
 
 ```bash
 # Create workspace directory
-mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/
+mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
 
 # Clone package
 git clone -b $ROS_DISTRO https://github.com/rt-net/raspimouse_description
