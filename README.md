@@ -9,9 +9,6 @@ ROS package with URDF description macro for [Raspberry Pi Mouse](https://rt-net.
 This ROS package was separated from [rt-net/raspimouse_sim](https://github.com/rt-net/raspimouse_sim).
 See details from [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse_sim/pull/42).
 
-The main development branch for ROS 1 is [`master`](https://github.com/rt-net/raspimouse_description/tree/master).
-The main development branch for ROS 2 is [`ros2`](https://github.com/rt-net/raspimouse_description/tree/ros2).
-
 ## Table of Contents
 
 - [raspimouse\_description](#raspimouse_description)
