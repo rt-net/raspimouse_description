@@ -2,13 +2,20 @@
 Changelog for package raspimouse_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.0.0 (2026-08-25)
+------------------
+* Support ROS 2 Lyrical Luth (`#59 <https://github.com/rt-net/raspimouse_description/issues/59>`_)
+* Require CMake 3.20 and C++20
+* Add dependencies and install test resources for launch testing
+* Update README and CI for ROS 2 Lyrical Luth
+* Contributors: Kazushi Kurasawa
+
 2.0.0 (2024-11-08)
 ------------------
 * Support ROS 2 Jazzy (`#55 <https://github.com/rt-net/raspimouse_description/issues/55>`_)
-  Co-authored-by: Kazushi Kurasawa <Kurasawa@rt-net.jp>
 * Replace `ign` to `gz`
 * Updated the remapping for subscription to reflect the removal of `unstamped` from `ros2_controllers <https://github.com/ros-controls/ros2_controllers/blob/57c50e584e33b316dd64801916cf6d951e0cff5b/tricycle_controller/CHANGELOG.rst#4100-2024-07-01>`_
-* Contributors: YusukeKato
+* Contributors: Kazushi Kurasawa
 
 1.2.0 (2024-03-05)
 ------------------
