@@ -29,6 +29,7 @@ See details from [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse
 
 - Humble ([`humble`](https://github.com/rt-net/raspimouse_description/tree/humble))
 - Jazzy ([`jazzy`](https://github.com/rt-net/raspimouse_description/tree/jazzy))
+- Lyrical Luth ([`feature/support-lyrical`](https://github.com/rt-net/raspimouse_description/tree/feature/support-lyrical))
 
 ## Requirements
 
@@ -38,7 +39,7 @@ See details from [rt-net/raspimouse_sim#42](https://github.com/rt-net/raspimouse
 - Linux OS
   - Ubuntu Desktop 24.04
 - ROS 2
-  - [Jazzy Jalisco](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
+  - [Lyrical Luth](https://docs.ros.org/en/lyrical/Installation/Ubuntu-Install-Debs.html)
 
 ## Installation
 
