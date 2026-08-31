@@ -12,10 +12,6 @@
     <gazebo>
       <xacro:if value="${use_gazebo}">
         <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-          <ros>
-            <remapping>diff_drive_controller/cmd_vel:=cmd_vel</remapping>
-            <remapping>diff_drive_controller/odom:=odom</remapping>
-          </ros>
           <parameters>$(find ${config_file_package})/${config_file_path}</parameters>
         </plugin>
       </xacro:if>
